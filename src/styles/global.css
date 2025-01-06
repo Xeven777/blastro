@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+  --accent: #a8e524;
+  --accent-dark: #a8e524;
+  --black: #191f19;
+  --gray: #282626;
+  --gray-light: #1e1e1f;
+  --gray-dark: #0e100f;
+  --box-shadow: 0 2px 6px rgba(var(--gray), 0.25),
+    0 8px 24px rgba(var(--gray), 0.33), 0 16px 32px rgba(var(--gray), 0.33);
 }
 
 body {
