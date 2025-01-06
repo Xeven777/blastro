@@ -3,26 +3,37 @@
 :root {
   --accent: #a8e524;
   --accent-dark: #a8e524;
-  --black: #191f19;
-  --gray: #282626;
-  --gray-light: #1e1e1f;
-  --gray-dark: #0e100f;
+  --white: 255, 255, 255;
+  --white-smoke: 240, 240, 240;
+  --gray-dark: 14, 16, 15;
+  --greenish-black: 25, 31, 25;
+  --gray-light: 30, 30, 31;
+  --gray: 40, 38, 38;
   --box-shadow: 0 2px 6px rgba(var(--gray), 0.25),
     0 8px 24px rgba(var(--gray), 0.33), 0 16px 32px rgba(var(--gray), 0.33);
 }
 
 body {
+  height: 100%;
   font-family: "Instrument Sans", sans-serif;
   margin: 0;
+  letter-spacing: -0.01em;
   padding: 0;
   text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
-  background-size: 100% 600px;
+  background: rgb(var(--gray-dark));
   word-wrap: break-word;
   overflow-wrap: break-word;
-  color: rgb(var(--gray-dark));
   font-size: 20px;
   line-height: 1.7;
+}
+* {
+  color: rgb(var(--white-smoke));
+}
+.serif {
+  font-family: "Instrument Serif", serif;
+}
+.mono {
+  font-family: "Space Mono", monospace;
 }
 main {
   width: 720px;
@@ -37,8 +48,8 @@ h4,
 h5,
 h6 {
   margin: 0 0 0.5rem 0;
-  color: rgb(var(--black));
   line-height: 1.2;
+  color: rgb(var(--white));
 }
 h1 {
   font-size: 3.052em;
@@ -87,9 +98,12 @@ img {
   border-radius: 8px;
 }
 code {
+  font-family: "Space Mono", monospace;
   padding: 2px 5px;
+  letter-spacing: -0.05em;
   background-color: rgb(var(--gray-light));
-  border-radius: 2px;
+  color: rgb(var(--white-smoke), 0.8);
+  border-radius: 4px;
 }
 pre {
   padding: 1.5em;
@@ -106,7 +120,7 @@ blockquote {
 }
 hr {
   border: none;
-  border-top: 1px solid rgb(var(--gray-light));
+  border-top: 1px solid rgb(var(--gray));
 }
 @media (max-width: 720px) {
   body {
@@ -129,4 +143,20 @@ hr {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--greenish-black));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(var(--gray-dark));
+}
+
+::selection {
+  background-color: var(--accent);
+  color: rgb(var(--gray-dark));
 }
