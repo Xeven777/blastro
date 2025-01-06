@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Search from "astro-pagefind/components/Search";
+---
+
+<BaseLayout
+  title={"Search | Anish Biswas"}
+  description={"Search for blog posts"}
+>
+  <h1>Search</h1>
+  <Search id="search" uiOptions={{ showImages: false }} />
+</BaseLayout>
+
+<style>
+  :root {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: #a8e524;
+    --pagefind-ui-text: #f0f0f0;
+    --pagefind-ui-background: #0e100f;
+    --pagefind-ui-border: #1e1e1f;
+    --pagefind-ui-tag: #1e1e1f;
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: "Instrument Sans", sans-serif;
+  }
+</style>
