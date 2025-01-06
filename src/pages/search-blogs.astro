@@ -7,8 +7,31 @@ import Search from "astro-pagefind/components/Search";
   title={"Search | Anish Biswas"}
   description={"Search for blog posts"}
 >
-  <h1>Search</h1>
-  <Search id="search" uiOptions={{ showImages: false }} />
+  <main class="max-w-3xl mb-40">
+    <h1 class="inline-flex p-1">
+      <span class="bg-gradient-to-br from-zinc-100 via-zinc-100/70 to-zinc-700/40 bg-clip-text text-transparent font-medium tracking-tight">Search</span><span
+        class="flex items-center ml-4 animate-pulse"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-scan-search md:size-12"
+          ><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path
+            d="M17 3h2a2 2 0 0 1 2 2v2"></path><path
+            d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path
+            d="M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="3"
+          ></circle><path d="m16 16-1.9-1.9"></path></svg
+        ></span
+      >
+    </h1>
+    <Search id="search" uiOptions={{ showImages: false }} />
+  </main>
 </BaseLayout>
 
 <style>
