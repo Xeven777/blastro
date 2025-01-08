@@ -1,21 +1,50 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <h1>🧑‍🚀 <span class="serif italic"> Hello</span>, Astronaut!</h1>
-      hiii
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout>
+  <main class="flex flex-col items-center justify-center pt-6 w-full max-w-5xl">
+    <section
+      class="relative flex flex-col items-center justify-center text-center"
+    >
+      <div
+        class="h-60 w-60 rounded-full absolute -top-40 -z-10 -left-60 bg-ngreen opacity-20 blur-3xl"
+      >
+      </div>
+      <div
+        class="h-60 w-60 rounded-full absolute -bottom-40 -z-10 -right-60 bg-ngreen opacity-20 blur-3xl"
+      >
+      </div>
+      <h1 class="tracking-tight">
+        🧑‍🚀 <span class="serif italic font-normal"> Hello,</span> Astronaut!
+      </h1>
+      <div class="relative mt-6 rounded-3xl overflow-hidden">
+        <video
+          src="/assets/planetvid.webm"
+          autoplay
+          loop
+          muted
+          class="rounded-3xl glow cursor-crosshair"
+        >
+        </video>
+        <div
+          class="backdrop-blur-lg shadow absolute right-0 top-0 h-10 w-32 z-30 rounded-bl-3xl"
+        >
+        </div>
+        <div
+          class="backdrop-blur-lg shadow absolute left-0 bottom-0 h-10 w-32 z-30 rounded-tr-3xl"
+        >
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+<style>
+  .glow {
+    transition-duration: 700ms;
+    box-shadow: 0 0 36px 2px rgba(79, 109, 16, 0.3);
+  }
+  .glow:hover {
+    box-shadow: 0 0 36px 2px rgba(79, 109, 16, 0.6);
+  }
+</style>
