@@ -163,3 +163,14 @@ hr {
   background-color: var(--accent);
   color: rgb(var(--gray-dark));
 }
+
+.scroll-watcher {
+  scale: 0 1;
+  animation: scroll-watcher linear;
+  animation-timeline: scroll();
+}
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
+}

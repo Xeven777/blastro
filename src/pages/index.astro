@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
+import astrofloat from "../assets/astrofloat.webp";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <main class="flex flex-col items-center justify-center pt-6 w-full max-w-5xl">
+  <main class="flex min-h-[200vh] flex-col items-center pt-6 w-full max-w-5xl">
     <section
       class="relative flex flex-col items-center justify-center text-center"
     >
@@ -18,24 +20,39 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <h1 class="tracking-tight">
         🧑‍🚀 <span class="serif italic font-normal"> Hello,</span> Astronaut!
       </h1>
-      <div class="relative mt-6 rounded-3xl overflow-hidden">
+      <div class="relative mt-6 rounded-3xl">
         <video
           src="/assets/planetvid.webm"
           autoplay
           loop
           muted
-          class="rounded-3xl glow cursor-crosshair"
+          class="rounded-3xl glow cursor-crosshair select-none pointer-events-none"
         >
         </video>
         <div
-          class="backdrop-blur-lg shadow absolute right-0 top-0 h-10 w-32 z-30 rounded-bl-3xl"
+          class="backdrop-blur-lg absolute right-0 top-0 h-10 w-32 z-30 rounded-bl-3xl rounded-tr-3xl"
         >
         </div>
         <div
-          class="backdrop-blur-lg shadow absolute left-0 bottom-0 h-10 w-32 z-30 rounded-tr-3xl"
+          class="backdrop-blur-lg absolute left-0 bottom-0 h-10 w-32 z-30 rounded-tr-3xl rounded-bl-3xl"
         >
         </div>
+        <Image
+          src={astrofloat}
+          alt="Astronaut floating"
+          class="drop-shadow-lg absolute left-1/2 -translate-x-1/2 -bottom-14 fff opacity-80 -hue-rotate-30 blurIn"
+          width={500}
+        />
       </div>
+
+      <p class="mt-60 text-start opacity-75 md:px-4">
+        Welcome to my blog! I'm Anish, a full stack web developer🤖, lowkey
+        music producer🎶, avid football fan⚽, and a meme enthusiast🤪.
+        <br />
+        <br />
+        Here, write about web development, my journey as a developer, and other random
+        stuff that I find interesting.
+      </p>
     </section>
   </main>
 </BaseLayout>
@@ -46,5 +63,38 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
   .glow:hover {
     box-shadow: 0 0 36px 2px rgba(79, 109, 16, 0.6);
+  }
+  p {
+    animation: fadeIn ease;
+    animation-timeline: view(150px 10px);
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0.1;
+      transform: translateY(20px);
+      filter: blur(3px);
+    }
+    to {
+      opacity: 0.75;
+    }
+  }
+
+  .blurIn {
+    animation: blur-in ease-in-out;
+    animation-timeline: view(200px 100px);
+  }
+  @keyframes blur-in {
+    0% {
+      transform: translateY(100px) translateX(-50%) rotate(-20deg);
+      opacity: 0;
+      filter: hue-rotate(0deg);
+      filter: blur(10px);
+    }
+    100% {
+      transform: translateY(0px) translateX(-50%) rotate(0deg);
+      opacity: 0.8;
+      filter: hue-rotate(-30deg);
+      filter: blur(0px);
+    }
   }
 </style>
