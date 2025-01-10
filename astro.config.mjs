@@ -8,6 +8,10 @@ import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://example.com',
+    experimental: {
+        svg: true,
+        contentIntellisense: true,
+    },
+    site: 'https://blog.anish7.me',
     integrations: [mdx(), sitemap(), tailwind(), partytown(), pagefind(), compress()],
 });

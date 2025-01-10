@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Logo from "../assets/anishlogo.svg";
 import astrofloat from "../assets/astrofloat.webp";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -30,22 +31,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         >
         </video>
         <div
-          class="backdrop-blur-lg absolute right-0 top-0 h-10 w-32 z-30 rounded-bl-3xl rounded-tr-3xl"
+          class="backdrop-blur-lg absolute right-0 top-0 h-12 w-32 z-30 rounded-bl-3xl rounded-tr-3xl"
         >
         </div>
         <div
-          class="backdrop-blur-lg absolute left-0 bottom-0 h-10 w-32 z-30 rounded-tr-3xl rounded-bl-3xl"
+          class="backdrop-blur-lg absolute left-0 bottom-0 h-12 w-32 z-30 rounded-tr-3xl rounded-bl-3xl"
         >
         </div>
         <Image
           src={astrofloat}
           alt="Astronaut floating"
-          class="drop-shadow-lg absolute left-1/2 -translate-x-1/2 -bottom-14 fff opacity-80 -hue-rotate-30 blurIn"
+          class="drop-shadow-lg absolute left-1/2 -translate-x-1/2 -bottom-14 fff opacity-80 rotate-12 -hue-rotate-30 blurIn"
           width={500}
         />
       </div>
 
-      <p class="mt-60 text-start opacity-75 md:px-4">
+      <p class="mt-60 text-start opacity-75 md:px-4 intro">
         Welcome to my blog! I'm Anish, a full stack web developer🤖, lowkey
         music producer🎶, avid football fan⚽, and a meme enthusiast🤪.
         <br />
@@ -53,6 +54,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         Here, write about web development, my journey as a developer, and other random
         stuff that I find interesting.
       </p>
+      <div class="my-52 relative w-screen">
+        <div class="overflow-hidden space-y-5 masked">
+          <div
+            class="text-9xl flex gap-8 whitespace-nowrap tracking-tighter font-bold w-max pl-8 marquee-text"
+          >
+            <p>BLOGS</p>
+            <p>TECH</p>
+            <p>AI</p>
+            <p>FUN</p>
+            <p>TRICKS</p>
+            <p>BLOGS</p>
+            <p>TECH</p>
+            <p>AI</p>
+            <p>FUN</p>
+            <p>TRICKS</p>
+          </div>
+          <div
+            class="text-9xl flex gap-8 whitespace-nowrap tracking-tighter font-bold w-max pl-8 marquee-text-2"
+          >
+            <p>BLOGS</p>
+            <p>TECH</p>
+            <p>AI</p>
+            <p>FUN</p>
+            <p>TRICKS</p>
+            <p>BLOGS</p>
+            <p>TECH</p>
+            <p>AI</p>
+            <p>FUN</p>
+            <p>TRICKS</p>
+          </div>
+        </div>
+        <Logo
+          class="size-60 absolute top-0 left-1/2 -translate-x-1/2 blur-3xl opacity-70"
+        />
+        <Logo class="size-60 absolute top-0 left-1/2 -translate-x-1/2" />
+      </div>
     </section>
   </main>
 </BaseLayout>
@@ -64,9 +101,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   .glow:hover {
     box-shadow: 0 0 36px 2px rgba(79, 109, 16, 0.6);
   }
-  p {
+
+  .intro {
     animation: fadeIn ease;
-    animation-timeline: view(150px 10px);
+    animation-timeline: view(50% 0);
   }
   @keyframes fadeIn {
     from {
@@ -81,7 +119,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   .blurIn {
     animation: blur-in ease-in-out;
-    animation-timeline: view(200px 100px);
+    animation-timeline: view(50% -100px);
   }
   @keyframes blur-in {
     0% {
@@ -91,10 +129,35 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       filter: blur(10px);
     }
     100% {
-      transform: translateY(0px) translateX(-50%) rotate(0deg);
+      transform: translateY(0px) translateX(-50%) rotate(12deg);
       opacity: 0.8;
       filter: hue-rotate(-30deg);
       filter: blur(0px);
     }
+  }
+
+  .marquee-text {
+    animation: marquee 8s linear infinite;
+  }
+  .marquee-text-2 {
+    animation: marquee 7s linear infinite reverse;
+  }
+  @keyframes marquee {
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .marquee-text > p,
+  .marquee-text-2 > p {
+    @apply text-zinc-700/80 mb-0;
+  }
+  .masked {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 30%,
+      black 70%,
+      transparent
+    );
   }
 </style>
