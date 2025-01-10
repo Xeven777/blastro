@@ -7,7 +7,8 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, author } =
+  Astro.props;
 ---
 
 <html lang="en">
@@ -25,11 +26,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       .hero-image img {
         display: block;
         margin: 0 auto;
-        border-radius: 12px;
+        border-radius: 16px;
         box-shadow: var(--box-shadow);
       }
       .prose {
-        width: 720px;
+        width: 750px;
         max-width: calc(100% - 2em);
         margin: auto;
         padding: 1em;
@@ -46,7 +47,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       }
       .date {
         margin-bottom: 0.5em;
-        color: rgb(var(--gray));
       }
       .last-updated-on {
         font-style: italic;
@@ -65,13 +65,19 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <div class="hero-image">
           {
             heroImage && (
-              <img width={1020} height={510} src={heroImage} alt="" />
+              <img
+                width={1000}
+                height={510}
+                src={heroImage}
+                alt=""
+                class="aspect-video max-w-4xl object-cover object-center"
+              />
             )
           }
         </div>
         <div class="prose">
-          <div class="title">
-            <div class="date">
+          <div class="inline-flex w-full justify-center gap-10">
+            <div class="date opacity-60">
               <FormattedDate date={pubDate} />
               {
                 updatedDate && (
@@ -81,9 +87,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                 )
               }
             </div>
-            <h1>{title}</h1>
-            <hr />
+            <p class="serif">
+              by <span class="italic font-semibold">
+                {author}
+              </span>
+            </p>
           </div>
+          <h1>{title}</h1>
+          <hr />
           <slot />
         </div>
       </article>
