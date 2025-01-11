@@ -25,11 +25,7 @@ import Search from "astro-pagefind/components/Search";
     </button>
 
     <!-- Mobile Menu -->
-    <div
-      class="mobile-menu md:hidden"
-      transition:persist
-      id="mobile-menu"
-    >
+    <div class="mobile-menu md:hidden" transition:persist id="mobile-menu">
       <div
         class="internal-links bg-zinc-950 rounded-md flex flex-col items-center gap-4 py-8"
       >
@@ -163,7 +159,6 @@ import Search from "astro-pagefind/components/Search";
     mobileMenu?.classList.toggle("active");
   });
 
-  // Close mobile menu when clicking outside
   document.addEventListener("click", (e) => {
     if (
       !hamburger?.contains(e.target as Node) &&
