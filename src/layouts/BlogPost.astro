@@ -132,9 +132,9 @@ const twit = encodeURIComponent(
           </h3>
           <div class="flex flex-wrap gap-4">
             <button
-              transition:persist
               class="inline-flex text-base items-center rounded gap-2 py-2 active:scale-95 px-4 bg-ngreen text-black"
               data-type="copy"
+              transition:persist="copybtn"
               aria-label="Copy link"
             >
               <svg
@@ -211,21 +211,23 @@ const twit = encodeURIComponent(
     </main>
     <Footer />
     <script>
-      const copyButton = document.querySelector('[data-type="copy"]');
-      if (copyButton) {
-        copyButton.addEventListener("click", () => {
-          navigator.clipboard.writeText(window.location.href);
-          const originalText = copyButton.innerHTML;
-          copyButton.innerHTML = `
+      document.addEventListener("astro:page-load", () => {
+        const copyButton = document.querySelector('[data-type="copy"]');
+        if (copyButton) {
+          copyButton.addEventListener("click", () => {
+            navigator.clipboard.writeText(window.location.href);
+            const originalText = copyButton.innerHTML;
+            copyButton.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 6 9 17l-5-5"/>
             </svg>Copied!
           `;
-          setTimeout(() => {
-            copyButton.innerHTML = originalText;
-          }, 2400);
-        });
-      }
+            setTimeout(() => {
+              copyButton.innerHTML = originalText;
+            }, 2400);
+          });
+        }
+      });
     </script>
   </body>
 </html>
