@@ -6,11 +6,10 @@ heroImage: "/assets/googlefonts.jpg"
 author: "Anish"
 ---
 
-##### Top 7 Cools Google Fonts That Deserve Your Attention (sans-serif)
+##### Top 8 Cools Google Fonts That Deserve Your Attention !
 
-Fonts are the backbone of great design, quietly working behind the scenes to make your visuals pop. While colors, images, and animations tend to steal the spotlight, fonts hold your design together like an unsung hero, or duct tape during a DIY emergency. But let’s face it—not all fonts are created equal. Some are majestic masterpieces, others… well, let’s just say they’re “unique” (looking at you, Comic Sans).
-
-Thankfully, Google Fonts has your back with an incredible collection of free, high-quality fonts. But who’s got the time to sift through over a thousand options? (Unless you’re that one overachiever who reads every user manual cover to cover… you know who you are.) Don’t worry, we’ve done the homework for you. Below are 7 extraordinary and lesser-known sans-serif Google Fonts that deserve a spot in your design toolkit.
+Fonts are essential to powerful design, quietly enhancing your visuals. While images and colors often grab attention, typography silently ties everything together. Not all typefaces excel (looking at you, Comic Sans).
+Thankfully, Google Fonts offers thousands of free, high-quality fonts. But who can sift through them all? Don’t worry—we’ve handpicked 8 underrated sans-serif choices to boost your design to the next level! ✨
 
 ---
 
@@ -56,8 +55,7 @@ Geist Sans is a sans-serif typeface designed for legibility and simplicity. It i
 
 ## 5. **DM Sans**
 
-DM Sans is a sans-serif typeface with a minimal, geometric & humanist touch. It’s a very clean & versatile font that works well in nearly every design from
-blogs, tech websites, ecommerce and everything in between.
+DM Sans is a sans-serif typeface with a minimal, geometric & humanist touch. It’s a very clean & versatile font that works well in nearly every design from blogs, tech websites, ecommerce and everything in between. A modern Helvetica alternative.
 
 **Best for:** Accessibility-focused designs, blogs, and making sure your text is easy on the eyes.
 
@@ -77,7 +75,15 @@ If you’re looking for a font that’s out of this world, Space Grotesk is here
 
 ---
 
-## 7. **Plus Jakarta Sans**
+## 7. **Bricolage Grotesque**
+
+Bricolage Grotesque is a variable font that is a modern grotesque typeface. Powerful, punchy, expressive which goes really well with modern neobrutalism as well as vintage themed aesthetic website! This is a great choice if you want your website to stand out from the crowd.
+
+![Bricol](https://fountn.design/wp-content/uploads/2024/04/Bricolage-Grotesque-Variable-Font-2048x1152.webp)
+
+---
+
+## 8. **Plus Jakarta Sans**
 
 Last but not least, we have Plus Jakarta Sans. This font is like a warm hug for your eyes, with its soft curves and friendly appearance. It’s versatile enough to work in a variety of contexts, from websites to print materials. Best aletrnative to Poppins, Open Sans, Nunito Sans.
 
@@ -95,6 +101,6 @@ It’s clean, modern, and easy to read, making it a solid choice for everything 
 
 ### Final Thoughts
 
-Fonts matter. A lot. Whether you’re designing for work, fun, or that side hustle you swear will take off one day, the right font can make or break your design. These 7 unique Google Fonts are fresh, stylish, and most importantly, free—because who doesn’t love free stuff?
+Fonts matter. A lot. Whether you’re designing for work, fun, or that side hustle you swear will take off one day, the right font can make or break your design. These 8 unique Google Fonts are fresh, stylish, and most importantly, free—because who doesn’t love free stuff?
 
 So go forth, my fellow font enthusiast, and design something amazing. And remember: life’s too short for bad kerning.

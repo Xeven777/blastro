@@ -42,8 +42,7 @@ body {
 }
 
 main {
-  width: 720px;
-  max-width: calc(100% - 2em);
+  max-width: calc(100% - 12px);
   margin: auto;
   padding: 3em 1em;
 }
@@ -59,19 +58,19 @@ h6 {
   color: rgb(var(--white));
 }
 h1 {
-  font-size: 3.052em;
+  font-size: 3em;
 }
 h2 {
-  font-size: 2.441em;
+  font-size: 2.4em;
 }
 h3 {
-  font-size: 1.953em;
+  font-size: 1.8em;
 }
 h4 {
-  font-size: 1.563em;
+  font-size: 1.5em;
 }
 h5 {
-  font-size: 1.25em;
+  font-size: 1.22em;
 }
 strong,
 b {
