@@ -127,14 +127,13 @@ import Search from "astro-pagefind/components/Search";
     top: 60px;
     left: 0;
     right: 0;
-    background: rgb(var(--black), 0.95);
-    backdrop-filter: blur(20px);
     padding: 1rem;
-    box-shadow: 0 2px 8px rgba(15, 15, 15, 0.2);
+    box-shadow: 0 2px 8px rgba(var(--gray-light), 0.4);
   }
 
   .mobile-menu.active {
     display: block;
+    background: rgb(var(--gray-light));
   }
 
   #hamburger.active .hamburger-line:nth-child(1) {

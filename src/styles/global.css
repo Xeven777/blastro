@@ -13,9 +13,6 @@
     0 8px 24px rgba(var(--gray), 0.33), 0 16px 32px rgba(var(--gray), 0.33);
 }
 
-html {
-  overflow-x: hidden;
-}
 mark {
   background-color: var(--accent);
   border-radius: 4px;
@@ -43,9 +40,7 @@ body {
 .serif {
   font-family: "Instrument Serif", serif;
 }
-.mono {
-  font-family: "Space Mono", monospace;
-}
+
 main {
   width: 720px;
   max-width: calc(100% - 2em);
