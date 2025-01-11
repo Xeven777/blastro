@@ -60,7 +60,7 @@ const { title, description, pubDate, updatedDate, heroImage, author } =
     >
     </div>
     <Header />
-    <main>
+    <main class="mx-auto">
       <article>
         <div class="hero-image">
           {
@@ -70,12 +70,12 @@ const { title, description, pubDate, updatedDate, heroImage, author } =
                 height={510}
                 src={heroImage}
                 alt={title}
-                class="aspect-video max-w-4xl object-cover object-center"
+                class="aspect-video w-full max-w-4xl object-cover object-center"
               />
             )
           }
         </div>
-        <div class="prose">
+        <div class="max-w-4xl mx-auto px-4">
           <div class="inline-flex w-full justify-center gap-10">
             <div class="date opacity-60">
               <FormattedDate date={pubDate} />
