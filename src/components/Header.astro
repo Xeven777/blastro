@@ -9,14 +9,50 @@ import Search from "astro-pagefind/components/Search";
     <h2>
       <a href="/" class="flex items-center gap-2">
         <img src="/assets/blastro.svg" alt="Blastro Logo" class="h-7" />
-        {SITE_TITLE}</a
-      >
+        {SITE_TITLE}
+      </a>
     </h2>
-    <div class="internal-links">
+
+    <!-- Hamburger Button -->
+    <button
+      class="md:hidden flex flex-col gap-1 p-2"
+      id="hamburger"
+      aria-label="Menu"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div
+      class="mobile-menu md:hidden"
+      transition:persist
+      id="mobile-menu"
+    >
+      <div
+        class="internal-links bg-zinc-950 rounded-md flex flex-col items-center gap-4 py-8"
+      >
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="/search-blogs">Search</HeaderLink>
+        <div class="w-full px-4">
+          <Search
+            className="max-h-96 overflow-y-auto"
+            id="search-mobile"
+            uiOptions={{ showImages: false }}
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="internal-links hidden md:flex">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href="/search-blogs"> Search </HeaderLink>
+      <HeaderLink href="/search-blogs">Search</HeaderLink>
     </div>
     <div class="w-44 md:block hidden">
       <div class="max-w-52 absolute top-2">
@@ -29,6 +65,7 @@ import Search from "astro-pagefind/components/Search";
     </div>
   </nav>
 </header>
+
 <style>
   :root {
     --pagefind-ui-scale: 0.75;
@@ -80,4 +117,60 @@ import Search from "astro-pagefind/components/Search";
     text-decoration: none;
     border-bottom-color: var(--accent);
   }
+
+  .hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: rgb(var(--white-smoke), 0.9);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgb(var(--black), 0.95);
+    backdrop-filter: blur(20px);
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(15, 15, 15, 0.2);
+  }
+
+  .mobile-menu.active {
+    display: block;
+  }
+
+  #hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 </style>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  hamburger?.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    mobileMenu?.classList.toggle("active");
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      !hamburger?.contains(e.target as Node) &&
+      !mobileMenu?.contains(e.target as Node)
+    ) {
+      hamburger?.classList.remove("active");
+      mobileMenu?.classList.remove("active");
+    }
+  });
+</script>
