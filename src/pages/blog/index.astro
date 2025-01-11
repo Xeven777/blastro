@@ -9,24 +9,31 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <BaseLayout>
-  <main class="w-full max-w-5xl mx-auto px-4">
+  <main class="w-full max-w-6xl mx-auto px-4 py-12">
     <section>
-      <ul>
+      <ul class="grid-container">
         {
           posts.map((post) => (
-            <li class="group">
-              <a href={`/blog/${post.id}/`}>
-                <img
-                  class="group-hover:-translate-y-1"
-                  width={720}
-                  height={360}
-                  src={post.data.heroImage}
-                  alt={post.data.title}
-                />
-                <h4 class="title">{post.data.title}</h4>
-                <p class="date">
-                  <FormattedDate date={post.data.pubDate} />
-                </p>
+            <li class="blog-card group">
+              <a href={`/blog/${post.id}/`} class="h-full">
+                <div class="image-container">
+                  <img
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="transition-all duration-300"
+                  />
+                </div>
+                <div class="content-container">
+                  <h4 class="title group-hover:text-ngreen transition-all duration-500">
+                    {post.data.title}
+                  </h4>
+                  <p class="mb-0 text-sm opacity-50 space-x-6">
+                    <FormattedDate date={post.data.pubDate} />
+                    <span class="serif italic">- by {post.data.author}</span>
+                  </p>
+                </div>
               </a>
             </li>
           ))
@@ -37,69 +44,86 @@ const posts = (await getCollection("blog")).sort(
 </BaseLayout>
 
 <style>
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    list-style-type: none;
-    margin: 0;
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
+    gap: 2.5rem;
     padding: 0;
+    list-style-type: none;
   }
-  ul li {
-    width: calc(50% - 1rem);
+
+  /* Card Styling */
+  .blog-card {
+    background: rgb(var(--gray), 0.3);
+    border-radius: 1rem;
+    overflow: hidden;
+    filter: saturate(0.8);
+    box-shadow:
+      0 4px 6px -1px rgba(var(--accent), 0.1),
+      0 2px 4px -1px rgba(var(--accent), 0.06);
   }
-  ul li * {
-    text-decoration: none;
+
+  .blog-card:hover {
+    filter: brightness(1.1) saturate(1.1);
+    transform: translateY(-4px);
+    background: rgb(var(--greenish-black), 0.3);
   }
-  ul li:first-child {
-    width: 100%;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  ul li:first-child img {
-    width: 100%;
-  }
-  ul li:first-child .title {
-    font-size: 2.34rem;
-  }
-  ul li img {
-    margin-bottom: 0.5rem;
+
+  /* Image Container */
+  .image-container {
+    position: relative;
+    overflow: hidden;
     aspect-ratio: 16/9;
+  }
+
+  .blog-card img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 12px;
+    transition: transform 0.3s ease;
   }
-  ul li a {
-    display: block;
+
+  .blog-card:hover img {
+    transform: scale(1.05);
   }
+
+  /* Content Container */
+  .content-container {
+    padding: 1.5rem;
+  }
+
+  /* Typography */
   .title {
-    margin: 0;
-    line-height: 1;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-clamp: 1;
+    color: rgb(var(--white));
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
   }
-  .date {
-    margin: 0;
-    color: rgb(var(--gray));
+
+  /* Featured Post (First Item) */
+  .blog-card:first-child {
+    grid-column: 1 / -1;
   }
-  ul li a:hover h4,
-  ul li a:hover .date {
-    color: rgb(var(--accent));
+
+  .blog-card:first-child .title {
+    font-size: 1.875rem;
   }
-  ul a:hover img {
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 720px) {
-    ul {
-      gap: 0.5em;
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .grid-container {
+      gap: 1.5rem;
     }
-    ul li {
-      width: 100%;
-      text-align: center;
+
+    .content-container {
+      padding: 1rem;
     }
-    ul li:first-child {
-      margin-bottom: 0;
-    }
-    ul li:first-child .title {
-      font-size: 1.563em;
+
+    .blog-card:first-child .title {
+      font-size: 1.5rem;
     }
   }
 </style>

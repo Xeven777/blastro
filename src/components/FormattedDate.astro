@@ -4,14 +4,35 @@ interface Props {
 }
 
 const { date } = Astro.props;
+
+function getRelativeTimeString(date: Date): string {
+  const now = new Date();
+  const diffInMs = now.getTime() - date.getTime();
+  const diffInSecs = Math.floor(diffInMs / 1000);
+  const diffInMins = Math.floor(diffInSecs / 60);
+  const diffInHours = Math.floor(diffInMins / 60);
+  const diffInDays = Math.floor(diffInHours / 24);
+  const diffInMonths = Math.floor(diffInDays / 30);
+  const diffInYears = Math.floor(diffInDays / 365);
+
+  const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+
+  if (diffInYears > 0) return rtf.format(-diffInYears, "year");
+  if (diffInMonths > 0) return rtf.format(-diffInMonths, "month");
+  if (diffInDays > 0) return rtf.format(-diffInDays, "day");
+  if (diffInHours > 0) return rtf.format(-diffInHours, "hour");
+  if (diffInMins > 0) return rtf.format(-diffInMins, "minute");
+  return rtf.format(-diffInSecs, "second");
+}
+
+const relativeTime = getRelativeTimeString(date);
+const exactDate = date.toLocaleDateString("en-us", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
 ---
 
-<time datetime={date.toISOString()}>
-  {
-    date.toLocaleDateString("en-us", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })
-  }
+<time datetime={date.toISOString()} title={exactDate}>
+  {relativeTime}
 </time>
