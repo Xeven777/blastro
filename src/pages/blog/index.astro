@@ -9,7 +9,7 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <BaseLayout>
-  <main class="w-full max-w-6xl mx-auto px-4 py-12">
+  <main class="w-full max-w-5xl mx-auto px-4 py-12">
     <section>
       <ul class="grid-container">
         {
@@ -20,6 +20,7 @@ const posts = (await getCollection("blog")).sort(
                   <img
                     width={720}
                     height={360}
+                    transition:name={post.data.title}
                     src={post.data.heroImage}
                     alt={post.data.title}
                     class="transition-all duration-300"

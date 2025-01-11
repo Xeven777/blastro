@@ -4,14 +4,14 @@ import { SITE_TITLE } from "../consts";
 import Search from "astro-pagefind/components/Search";
 ---
 
-<header>
+<header transition:persist="hamburger-menu">
   <nav>
-    <h2>
-      <a href="/" class="flex items-center gap-2">
+    <a href="/">
+      <h2 class="flex items-center gap-2 text-xl md:text-2xl">
         <img src="/assets/blastro.svg" alt="Blastro Logo" class="h-7" />
         {SITE_TITLE}
-      </a>
-    </h2>
+      </h2>
+    </a>
 
     <!-- Hamburger Button -->
     <button
@@ -25,9 +25,9 @@ import Search from "astro-pagefind/components/Search";
     </button>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu md:hidden" transition:persist id="mobile-menu">
+    <div class="mobile-menu md:hidden" id="mobile-menu">
       <div
-        class="internal-links bg-zinc-950 rounded-md flex flex-col items-center gap-4 py-8"
+        class="internal-links rounded-md flex flex-col items-center gap-4 py-8"
       >
         <HeaderLink href="/">Home</HeaderLink>
         <HeaderLink href="/blog">Blog</HeaderLink>
@@ -89,7 +89,6 @@ import Search from "astro-pagefind/components/Search";
   }
   h2 {
     margin: 0;
-    font-size: 1em;
   }
   img:hover {
     filter: drop-shadow(0 0 12px #a8e52492) saturate(1);
@@ -127,18 +126,17 @@ import Search from "astro-pagefind/components/Search";
     top: 60px;
     left: 0;
     right: 0;
-    background: rgb(var(--black), 0.95);
-    backdrop-filter: blur(20px);
     padding: 1rem;
-    box-shadow: 0 2px 8px rgba(15, 15, 15, 0.2);
+    box-shadow: 0 2px 8px rgba(var(--gray-light), 0.4);
   }
 
   .mobile-menu.active {
     display: block;
+    background: rgb(var(--gray-light));
   }
 
   #hamburger.active .hamburger-line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(6.5px) rotate(45deg);
   }
 
   #hamburger.active .hamburger-line:nth-child(2) {
@@ -146,10 +144,9 @@ import Search from "astro-pagefind/components/Search";
   }
 
   #hamburger.active .hamburger-line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-6.5px) rotate(-45deg);
   }
 </style>
-
 <script>
   const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobile-menu");

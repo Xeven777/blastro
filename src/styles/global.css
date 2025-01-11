@@ -12,6 +12,7 @@
   --box-shadow: 0 2px 6px rgba(var(--gray), 0.25),
     0 8px 24px rgba(var(--gray), 0.33), 0 16px 32px rgba(var(--gray), 0.33);
 }
+
 mark {
   background-color: var(--accent);
   border-radius: 4px;
@@ -34,17 +35,14 @@ body {
 }
 * {
   transition-duration: 350ms;
-  color: rgb(var(--white-smoke));
+  color: rgb(var(--white-smoke), 0.9);
 }
 .serif {
   font-family: "Instrument Serif", serif;
 }
-.mono {
-  font-family: "Space Mono", monospace;
-}
+
 main {
-  width: 720px;
-  max-width: calc(100% - 2em);
+  max-width: calc(100% - 12px);
   margin: auto;
   padding: 3em 1em;
 }
@@ -60,19 +58,19 @@ h6 {
   color: rgb(var(--white));
 }
 h1 {
-  font-size: 3.052em;
+  font-size: 3em;
 }
 h2 {
-  font-size: 2.441em;
+  font-size: 2.4em;
 }
 h3 {
-  font-size: 1.953em;
+  font-size: 1.8em;
 }
 h4 {
-  font-size: 1.563em;
+  font-size: 1.5em;
 }
 h5 {
-  font-size: 1.25em;
+  font-size: 1.22em;
 }
 strong,
 b {
@@ -86,9 +84,6 @@ a:hover {
 }
 p {
   margin-bottom: 1em;
-}
-.prose p {
-  margin-bottom: 2em;
 }
 textarea {
   width: 100%;
@@ -114,7 +109,7 @@ code {
   border-radius: 4px;
 }
 pre {
-  padding: 1.5em;
+  padding: 1.2em 0.7em;
   border-radius: 8px;
 }
 pre > code {
