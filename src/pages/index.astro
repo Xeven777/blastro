@@ -9,126 +9,129 @@ import ButtonPrimary from "../components/ButtonPrimary.astro";
 <BaseLayout>
   <main class="flex flex-col items-center pt-6 w-full max-w-5xl">
     <section
-      class="relative flex flex-col items-center justify-center text-center"
+      class="relative overflow-x-clip flex flex-col items-center justify-center text-center"
     >
-      <div
-        class="h-60 w-60 rounded-full absolute -top-40 -z-10 -left-60 bg-ngreen opacity-20 blur-3xl"
-      >
-      </div>
-      <div
-        class="hidden md:block h-60 w-60 rounded-full absolute -bottom-40 -z-10 -right-60 bg-ngreen opacity-20 blur-3xl"
-      >
-      </div>
-      <h1 class="tracking-tight scale-110 cursor-pointer select-none">
-        🧑‍🚀 <span class="serif italic font-normal"> Hello,</span>
-        <span class="illuminated"> Astronaut! </span>
-      </h1>
-      <div class="relative mt-6 max-w-screen-xl rounded-3xl w-full mx-auto">
-        <video
-          src="/assets/planetvid.webm"
-          autoplay
-          loop
-          muted
-          class="rounded-3xl glow cursor-crosshair select-none pointer-events-none"
-        >
-        </video>
-        <div
-          class="backdrop-blur-lg absolute right-0 top-0 h-8 w-20 md:h-12 md:w-32 z-30 rounded-bl-3xl rounded-tr-3xl"
-        >
-        </div>
-        <div
-          class="backdrop-blur-lg absolute left-0 bottom-0 h-8 w-20 md:h-12 md:w-32 z-30 rounded-tr-3xl rounded-bl-3xl"
-        >
-        </div>
-        <Image
-          src={astrofloat}
-          alt="Astronaut floating"
-          class="drop-shadow-lg absolute left-1/2 -translate-x-1/2 -bottom-14 w-40 md:w-max opacity-80 rotate-12 -hue-rotate-30 blurIn"
-          width={500}
-        />
-      </div>
-
-      <p class="md:mt-60 mt-32 text-start opacity-75 px-4 intro">
-        Welcome to my blog! I'm <a
-          href="http://anish7.me"
-          target="_blank"
-          class="text-inherit hover:text-primary hover:tracking-wide"
-          rel="noopener noreferrer">Anish</a
-        >, a <a
-          href="http://github.com/xeven777"
-          class="text-inherit hover:text-primary"
-          target="_blank"
-          rel="noopener noreferrer">full stack web developer</a
-        >🤖, lowkey <a
-          href="https://spti.fi/xeven"
-          class="text-inherit hover:text-primary"
-          target="_blank"
-          rel="noopener noreferrer">music producer</a
-        >🎶, avid football fan⚽ and a meme enthusiast🤪.
-        <br />
-        <br />
-        Here, write about web development, my journey as a developer, and other random
-        stuff that I find interesting.
-      </p>
-      <a href="/blog" class="mt-4">
-        <ButtonPrimary>
-          Read Blogs <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="black"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-right"
-            ><path d="m9 18 6-6-6-6"></path></svg
-          >
-        </ButtonPrimary>
-      </a>
-
-      <div class="my-52 relative w-screen">
-        <div class="overflow-hidden space-y-5 masked">
-          <div
-            class="text-9xl flex gap-8 whitespace-nowrap tracking-tighter font-bold w-max pl-8 marquee-text"
-          >
-            <p>BLOGS</p>
-            <p>TECH</p>
-            <p>AI</p>
-            <p>FUN</p>
-            <p>TRICKS</p>
-            <p>BLOGS</p>
-            <p>TECH</p>
-            <p>AI</p>
-            <p>FUN</p>
-            <p>TRICKS</p>
-          </div>
-          <div
-            class="text-9xl flex gap-8 whitespace-nowrap tracking-tighter font-bold w-max pl-8 marquee-text-2"
-          >
-            <p>BLOGS</p>
-            <p>TECH</p>
-            <p>AI</p>
-            <p>FUN</p>
-            <p>TRICKS</p>
-            <p>BLOGS</p>
-            <p>TECH</p>
-            <p>AI</p>
-            <p>FUN</p>
-            <p>TRICKS</p>
-          </div>
-        </div>
-        <Logo
-          class="size-60 absolute top-0 left-1/2 -translate-x-1/2 blur-3xl opacity-70 slidein"
-        />
-        <Logo
-          class="size-60 absolute top-0 left-1/2 -translate-x-1/2 slidein"
-        />
-      </div>
     </section>
+    <div
+      class="h-60 w-60 rounded-full absolute -top-40 -z-10 -left-40 bg-ngreen opacity-20 blur-3xl"
+    >
+    </div>
+    <div
+      class="hidden md:block h-60 w-60 rounded-full absolute -bottom-40 -z-10 -right-40 bg-ngreen opacity-15 blur-3xl"
+    >
+    </div>
+    <div
+      class="hidden md:block h-60 w-60 rounded-full absolute -bottom-40 -z-10 -left-40 bg-ngreen opacity-15 blur-3xl"
+    >
+    </div>
+    <h1 class="tracking-tight text-center scale-110 cursor-pointer select-none">
+      🧑‍🚀<span class="serif italic font-normal"> Hello,</span>
+      <span class="illuminated"> Astronaut! </span>
+    </h1>
+    <div class="relative mt-6 max-w-screen-xl rounded-3xl w-full mx-auto">
+      <video
+        src="/assets/planetvid.webm"
+        autoplay
+        loop
+        muted
+        class="rounded-3xl glow cursor-crosshair select-none pointer-events-none"
+      >
+      </video>
+      <div
+        class="backdrop-blur-lg absolute right-0 top-0 h-8 w-20 md:h-12 md:w-32 z-30 rounded-bl-3xl rounded-tr-3xl"
+      >
+      </div>
+      <div
+        class="backdrop-blur-lg absolute left-0 bottom-0 h-8 w-20 md:h-12 md:w-32 z-30 rounded-tr-3xl rounded-bl-3xl"
+      >
+      </div>
+      <Image
+        src={astrofloat}
+        alt="Astronaut floating"
+        class="drop-shadow-lg absolute left-1/2 -translate-x-1/2 -bottom-14 w-40 md:w-max opacity-80 rotate-12 -hue-rotate-30 blurIn"
+        width={500}
+      />
+    </div>
+
+    <p class="md:mt-60 mt-32 text-start opacity-75 px-4 intro">
+      Welcome to my blog! I'm <a
+        href="http://anish7.me"
+        target="_blank"
+        class="text-inherit hover:text-primary hover:tracking-wide"
+        rel="noopener noreferrer">Anish</a
+      >, a <a
+        href="http://github.com/xeven777"
+        class="text-inherit hover:text-primary"
+        target="_blank"
+        rel="noopener noreferrer">full stack web developer</a
+      >🤖, lowkey <a
+        href="https://spti.fi/xeven"
+        class="text-inherit hover:text-primary"
+        target="_blank"
+        rel="noopener noreferrer">music producer</a
+      >🎶, avid football fan⚽ and a meme enthusiast🤪.
+      <br />
+      <br />
+      Here, write about web development, my journey as a developer, and other random
+      stuff that I find interesting.
+    </p>
+    <a href="/blog" class="mt-4">
+      <ButtonPrimary>
+        Read Blogs <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="black"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-right"
+          ><path d="m9 18 6-6-6-6"></path></svg
+        >
+      </ButtonPrimary>
+    </a>
+
+    <div class="my-52 relative w-screen">
+      <div class="overflow-hidden space-y-5 masked">
+        <div
+          class="text-9xl flex gap-8 whitespace-nowrap tracking-tighter font-bold w-max pl-8 marquee-text"
+        >
+          <p>BLOGS</p>
+          <p>TECH</p>
+          <p>AI</p>
+          <p>FUN</p>
+          <p>TRICKS</p>
+          <p>BLOGS</p>
+          <p>TECH</p>
+          <p>AI</p>
+          <p>FUN</p>
+          <p>TRICKS</p>
+        </div>
+        <div
+          class="text-9xl flex gap-8 whitespace-nowrap tracking-tighter font-bold w-max pl-8 marquee-text-2"
+        >
+          <p>BLOGS</p>
+          <p>TECH</p>
+          <p>AI</p>
+          <p>FUN</p>
+          <p>TRICKS</p>
+          <p>BLOGS</p>
+          <p>TECH</p>
+          <p>AI</p>
+          <p>FUN</p>
+          <p>TRICKS</p>
+        </div>
+      </div>
+      <Logo
+        class="size-60 absolute top-0 left-1/2 -translate-x-1/2 blur-3xl opacity-70 slidein"
+      />
+      <Logo class="size-60 absolute top-0 left-1/2 -translate-x-1/2 slidein" />
+    </div>
   </main>
 </BaseLayout>
+
 <style>
   .illuminated {
     color: white;

@@ -6,12 +6,12 @@ import Search from "astro-pagefind/components/Search";
 
 <header transition:persist="hamburger-menu">
   <nav>
-    <h2>
-      <a href="/" class="flex items-center gap-2">
+    <a href="/">
+      <h2 class="flex items-center gap-2 text-xl md:text-2xl">
         <img src="/assets/blastro.svg" alt="Blastro Logo" class="h-7" />
         {SITE_TITLE}
-      </a>
-    </h2>
+      </h2>
+    </a>
 
     <!-- Hamburger Button -->
     <button
@@ -89,7 +89,6 @@ import Search from "astro-pagefind/components/Search";
   }
   h2 {
     margin: 0;
-    font-size: 1em;
   }
   img:hover {
     filter: drop-shadow(0 0 12px #a8e52492) saturate(1);
