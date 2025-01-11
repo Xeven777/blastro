@@ -9,49 +9,19 @@ type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage, author } =
   Astro.props;
+
+const link = Astro.url.href;
+const wap = encodeURIComponent(
+  `Hey! I came across this awesome article⚡ - ${title.trim()}  in Blastro🔥. Check it out here now!👇🏻 \n ${link}`
+);
+const twit = encodeURIComponent(
+  `Hey! I came across this awesome article⚡ - ${title.trim()}  in Blastro🔥. Check it out here now!✨`
+);
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 16px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        width: 750px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
   </head>
 
   <body>
@@ -60,9 +30,33 @@ const { title, description, pubDate, updatedDate, heroImage, author } =
     >
     </div>
     <Header />
-    <main class="mx-auto">
-      <article>
-        <div class="hero-image">
+    <main class="mx-auto w-full min-h-screen py-8">
+      <article class="max-w-4xl mx-auto px-4">
+        <a href="/blog" class="inline-flex items-center text-inherit">
+          <button
+            class="px-4 mb-8 hover:bg-zinc-800 bg-zinc-900 text-base py-2 rounded-sm hover:rounded-md flex items-center gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mr-2 size-4"
+            >
+              <path d="m12 19-7-7 7-7"></path>
+              <path d="M19 12H5"></path>
+            </svg>
+            Back to Articles</button
+          >
+        </a>
+
+        <!-- Hero Image -->
+        <div>
           {
             heroImage && (
               <img
@@ -70,35 +64,166 @@ const { title, description, pubDate, updatedDate, heroImage, author } =
                 height={510}
                 src={heroImage}
                 alt={title}
-                class="aspect-video w-full max-w-4xl object-cover object-center"
+                class="rounded-xl shadow-lg w-full aspect-video object-cover object-center"
               />
             )
           }
         </div>
-        <div class="max-w-4xl mx-auto px-4">
-          <div class="inline-flex w-full justify-center gap-10">
-            <div class="date opacity-60">
+
+        <div class="flex flex-col items-center mb-8 text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            {title}
+          </h1>
+          <div class="flex items-center gap-4 text-zinc-600 opacity-70 mb-4">
+            <div class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="mr-2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
               <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
             </div>
-            <p class="serif">
-              by <span class="italic font-semibold">
-                {author}
-              </span>
-            </p>
+            <span>•</span>
+            <div class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="mr-2"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              {author}
+            </div>
           </div>
-          <h1>{title}</h1>
-          <hr />
+          {
+            updatedDate && (
+              <div class="text-sm  italic">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
           <slot />
+        </div>
+
+        <!-- Share Section -->
+        <div class="my-12 pt-8 border-t border-zinc-800">
+          <h3 class="text-lg font-semibold opacity-75 mb-4">
+            Share this article
+          </h3>
+          <div class="flex gap-4">
+            <button
+              transition:persist
+              class="inline-flex text-base items-center rounded gap-2 py-2 active:scale-95 px-4 bg-ngreen text-black"
+              data-type="copy"
+              aria-label="Copy link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path
+                  d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                ></path>
+              </svg>
+              Copy Link
+            </button>
+
+            <a
+              href={`https://wa.me/?text=${wap}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex text-base items-center rounded gap-2 py-2 active:scale-95 px-4 bg-green-600"
+              aria-label="Share on WhatsApp"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                ></path>
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <a
+              href={`https://twitter.com/intent/tweet?url=${link}&text=${twit}&hashtags=blastro`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex text-base items-center rounded gap-2 py-2 active:scale-95 px-4 bg-blue-600"
+              aria-label="Share on Twitter"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                ></path>
+              </svg>
+              <span>Twitter</span>
+            </a>
+          </div>
         </div>
       </article>
     </main>
     <Footer />
+    <script>
+      const copyButton = document.querySelector('[data-type="copy"]');
+      if (copyButton) {
+        copyButton.addEventListener("click", () => {
+          navigator.clipboard.writeText(window.location.href);
+          const originalText = copyButton.innerHTML;
+          copyButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"/>
+            </svg>Copied!
+          `;
+          setTimeout(() => {
+            copyButton.innerHTML = originalText;
+          }, 2400);
+        });
+      }
+    </script>
   </body>
 </html>

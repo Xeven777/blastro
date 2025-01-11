@@ -12,6 +12,10 @@
   --box-shadow: 0 2px 6px rgba(var(--gray), 0.25),
     0 8px 24px rgba(var(--gray), 0.33), 0 16px 32px rgba(var(--gray), 0.33);
 }
+
+html {
+  overflow-x: hidden;
+}
 mark {
   background-color: var(--accent);
   border-radius: 4px;
@@ -34,7 +38,7 @@ body {
 }
 * {
   transition-duration: 350ms;
-  color: rgb(var(--white-smoke));
+  color: rgb(var(--white-smoke), 0.9);
 }
 .serif {
   font-family: "Instrument Serif", serif;
@@ -86,9 +90,6 @@ a:hover {
 }
 p {
   margin-bottom: 1em;
-}
-.prose p {
-  margin-bottom: 2em;
 }
 textarea {
   width: 100%;

@@ -16,14 +16,14 @@ import ButtonPrimary from "../components/ButtonPrimary.astro";
       >
       </div>
       <div
-        class="h-60 w-60 rounded-full absolute -bottom-40 -z-10 -right-60 bg-ngreen opacity-20 blur-3xl"
+        class="hidden md:block h-60 w-60 rounded-full absolute -bottom-40 -z-10 -right-60 bg-ngreen opacity-20 blur-3xl"
       >
       </div>
       <h1 class="tracking-tight scale-110 cursor-pointer select-none">
         🧑‍🚀 <span class="serif italic font-normal"> Hello,</span>
         <span class="illuminated"> Astronaut! </span>
       </h1>
-      <div class="relative mt-6 rounded-3xl">
+      <div class="relative mt-6 max-w-screen-xl rounded-3xl w-full mx-auto">
         <video
           src="/assets/planetvid.webm"
           autoplay
@@ -33,22 +33,22 @@ import ButtonPrimary from "../components/ButtonPrimary.astro";
         >
         </video>
         <div
-          class="backdrop-blur-lg absolute right-0 top-0 h-12 w-32 z-30 rounded-bl-3xl rounded-tr-3xl"
+          class="backdrop-blur-lg absolute right-0 top-0 h-8 w-20 md:h-12 md:w-32 z-30 rounded-bl-3xl rounded-tr-3xl"
         >
         </div>
         <div
-          class="backdrop-blur-lg absolute left-0 bottom-0 h-12 w-32 z-30 rounded-tr-3xl rounded-bl-3xl"
+          class="backdrop-blur-lg absolute left-0 bottom-0 h-8 w-20 md:h-12 md:w-32 z-30 rounded-tr-3xl rounded-bl-3xl"
         >
         </div>
         <Image
           src={astrofloat}
           alt="Astronaut floating"
-          class="drop-shadow-lg absolute left-1/2 -translate-x-1/2 -bottom-14 fff opacity-80 rotate-12 -hue-rotate-30 blurIn"
+          class="drop-shadow-lg absolute left-1/2 -translate-x-1/2 -bottom-14 w-40 md:w-max opacity-80 rotate-12 -hue-rotate-30 blurIn"
           width={500}
         />
       </div>
 
-      <p class="mt-60 text-start opacity-75 md:px-4 intro">
+      <p class="md:mt-60 mt-32 text-start opacity-75 px-4 intro">
         Welcome to my blog! I'm <a
           href="http://anish7.me"
           target="_blank"

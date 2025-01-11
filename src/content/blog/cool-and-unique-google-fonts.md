@@ -6,7 +6,7 @@ heroImage: "/assets/googlefonts.jpg"
 author: "Anish"
 ---
 
-### Top 7 Cools Google Fonts That Deserve Your Attention (sans-serif)
+##### Top 7 Cools Google Fonts That Deserve Your Attention (sans-serif)
 
 Fonts are the backbone of great design, quietly working behind the scenes to make your visuals pop. While colors, images, and animations tend to steal the spotlight, fonts hold your design together like an unsung hero, or duct tape during a DIY emergency. But let’s face it—not all fonts are created equal. Some are majestic masterpieces, others… well, let’s just say they’re “unique” (looking at you, Comic Sans).
 
