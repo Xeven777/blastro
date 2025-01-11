@@ -20,6 +20,7 @@ const posts = (await getCollection("blog")).sort(
                   <img
                     width={720}
                     height={360}
+                    transition:name={post.data.title}
                     src={post.data.heroImage}
                     alt={post.data.title}
                     class="transition-all duration-300"

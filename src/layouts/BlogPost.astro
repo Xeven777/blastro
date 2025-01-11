@@ -64,6 +64,7 @@ const twit = encodeURIComponent(
                 height={510}
                 src={heroImage}
                 alt={title}
+                transition:name={title}
                 class="rounded-xl shadow-lg w-full aspect-video object-cover object-center"
               />
             )
@@ -74,7 +75,9 @@ const twit = encodeURIComponent(
           <h1 class="text-3xl md:text-6xl font-bold mb-4">
             {title}
           </h1>
-          <div class="flex text-base md:text-lg items-center gap-4 text-zinc-600 opacity-70 mb-4">
+          <div
+            class="flex text-base md:text-lg items-center gap-4 text-zinc-600 opacity-70 mb-4"
+          >
             <div class="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
