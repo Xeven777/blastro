@@ -4,7 +4,7 @@ import { SITE_TITLE } from "../consts";
 import Search from "astro-pagefind/components/Search";
 ---
 
-<header transition:persist="hamburger-menu">
+<header>
   <nav>
     <a href="/">
       <h2 class="flex items-center gap-2 text-xl md:text-2xl">
@@ -148,21 +148,23 @@ import Search from "astro-pagefind/components/Search";
   }
 </style>
 <script>
-  const hamburger = document.getElementById("hamburger");
-  const mobileMenu = document.getElementById("mobile-menu");
+  document.addEventListener("astro:page-load", () => {
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-  hamburger?.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    mobileMenu?.classList.toggle("active");
-  });
+    hamburger?.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      mobileMenu?.classList.toggle("active");
+    });
 
-  document.addEventListener("click", (e) => {
-    if (
-      !hamburger?.contains(e.target as Node) &&
-      !mobileMenu?.contains(e.target as Node)
-    ) {
-      hamburger?.classList.remove("active");
-      mobileMenu?.classList.remove("active");
-    }
+    document.addEventListener("click", (e) => {
+      if (
+        !hamburger?.contains(e.target as Node) &&
+        !mobileMenu?.contains(e.target as Node)
+      ) {
+        hamburger?.classList.remove("active");
+        mobileMenu?.classList.remove("active");
+      }
+    });
   });
 </script>
