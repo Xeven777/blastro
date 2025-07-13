@@ -58,7 +58,7 @@ graph TD;
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/abhraneeldhar7/blastro.git
+    git clone https://github.com/xeven777/blastro.git
     cd blastro
     ```
 
@@ -68,15 +68,23 @@ graph TD;
     npm install
     # or
     yarn install
+    #or
+    bun install
+    # or
+    pnpm install
     ```
 
 3.  **Run the development server:**
 
     ```bash
-    npm run dev
+    npm dev
     # or
     yarn dev
+    #or
+    bun dev
+    # or
+    pnpm dev
     ```
 
-4.  **Open your browser and navigate to `http://localhost:3000` to view the website.**
+4.  **Open your browser and navigate to `http://localhost:4321` to view the website.**
 ---
