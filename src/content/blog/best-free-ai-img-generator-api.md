@@ -109,6 +109,7 @@ GET https://ai-image-api.xeven.workers.dev/img?prompt=Fantasy castle&model=dream
 
 ```
 GET https://ai-image-api.xeven.workers.dev/img?prompt=Space battle&model=sdxl-lightning&guidance=8&negative_prompt=blurry&height=1024&width=1024&num_steps=15```
+```
 
 ### SD XL Example
 
@@ -153,51 +154,6 @@ curl -X GET "https://ai-image-api.xeven.workers.dev/img?prompt=Fantasy%20castle&
 -   Invalid routes return a 404 "Not Found" JSON response
 -   Unsupported parameters fall back to default values
 
-## 📁 Project Structure
-
-```
-src/
-├── index.ts              # Main application entry point
-├── handlers/
-│   └── models.ts         # Model-specific request handlers
-├── validators/
-│   └── index.ts          # Parameter validation functions
-└── types/
-    └── index.ts          # TypeScript type definitions
-```
-
-### Architecture
-
--   **Modular Design**: Each model has its own handler and validation function
--   **Type Safety**: Full TypeScript support with proper type definitions
--   **Clean Separation**: Validation logic separated from business logic
--   **Extensible**: Easy to add new models by creating new handlers and validators
-
-## 🚀 Development
-
-### Adding a New Model
-
-1.  **Add validation function** in `src/validators/index.ts`
-2.  **Create model handler** in `src/handlers/models.ts`
-3.  **Update types** in `src/types/index.ts` if needed
-4.  **Add case** in main switch statement in `src/index.ts`
-5.  **Update README** with new model documentation
-
-### Local Development
-
-```bash
-# Install dependencies
-bun install
-
-# Start development server
-bun run dev
-
-# Type checking
-npx tsc --noEmit
-
-# Deploy to Cloudflare Workers
-bun run deploy
-```
 
 ### By Flux :
 
