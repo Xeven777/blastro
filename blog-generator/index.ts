@@ -37,7 +37,8 @@ async function main() {
     }
 
     console.log(`\n✅ Found ${rawTopics.length} trending topics:`);
-    rawTopics.slice(0, 5).forEach((t, i) => {
+    // Show up to the top 10 topics for visibility
+    rawTopics.slice(0, Math.min(10, rawTopics.length)).forEach((t, i) => {
       console.log(
         `   ${i + 1}. ${t.title} (score: ${t.score}, comments: ${
           t.comments || 0
@@ -45,8 +46,24 @@ async function main() {
       );
     });
 
-    const selectedTopic = rawTopics[0];
-    console.log(`\n🎯 Selected: "${selectedTopic.title}"`);
+    // Select the topic with the highest score. If scores tie, prefer more comments.
+    const selectedTopic = rawTopics.reduce((best, t) => {
+      const bestScore = (best.score ?? 0) as number;
+      const tScore = (t.score ?? 0) as number;
+      if (tScore > bestScore) return t;
+      if (tScore === bestScore) {
+        const bestComments = (best.comments ?? 0) as number;
+        const tComments = (t.comments ?? 0) as number;
+        if (tComments > bestComments) return t;
+      }
+      return best;
+    }, rawTopics[0]);
+
+    console.log(
+      `\n🎯 Selected: "${selectedTopic.title}" (score: ${
+        selectedTopic.score
+      }, comments: ${selectedTopic.comments || 0})`
+    );
 
     // Convert RawTopic to TrendingTopic format
     const topicForGeneration = {
