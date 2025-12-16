@@ -108,7 +108,7 @@ async function main() {
       );
     });
 
-    const method = "best";
+    const method = "random";
     const selectedTopic = selectTopic(rawTopics, method);
 
     console.log(
