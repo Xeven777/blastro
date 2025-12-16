@@ -40,7 +40,7 @@ Content quality:
 - Add 3–4 image placeholders using [IMAGE:description] in between sections, not at last
 - Include real-world use cases, pitfalls, FAQs, and best practices
 - Use tables for comparisons when they add clarity, if applicable
-- Length: about 1,000–1200 words
+- Length: about 700–1000 words
 - Tone: friendly, cool, casual, slightly witty; avoid corporate jargon
 - Start with a single H1 SEO-optimized title
 - Use natural, descriptive headings (no forced \"Introduction\" or \"Conclusion\")

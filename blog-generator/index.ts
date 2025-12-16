@@ -1,13 +1,12 @@
 import { writeFile, mkdir } from "fs/promises";
 import { join } from "path";
 import { existsSync } from "fs";
-import { GROQ_API_KEY } from "./constants";
+import { CEREBRAS_API_KEY, GROQ_API_KEY } from "./constants";
 import {
   generateBlogContent,
   generateMetadata,
   generateAllImages,
   createSlug,
-  fetchTrendingTopics2,
   fetchHNTopicsOnly,
   fetchDevToTopicsOnly,
   determineBlogSource,
@@ -18,8 +17,8 @@ async function main() {
   try {
     console.log("\n🚀 Starting optimized blog generator...\n");
 
-    if (!GROQ_API_KEY) {
-      throw new Error("GROQ_API_KEY not set");
+    if (!GROQ_API_KEY || !CEREBRAS_API_KEY) {
+      throw new Error("GROQ_API_KEY or CEREBRAS_API_KEY not set");
     }
 
     // Step 1: Determine source and fetch topics

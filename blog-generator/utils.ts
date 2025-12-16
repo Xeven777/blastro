@@ -129,21 +129,21 @@ export async function generateBlogContent(
   );
 
   const response = await fetch(
-    // "https://api.groq.com/openai/v1/chat/completions",
-    "https://api.cerebras.ai/v1/chat/completions",
+    "https://api.groq.com/openai/v1/chat/completions",
+    // "https://api.cerebras.ai/v1/chat/completions",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Authorization: `Bearer ${GROQ_API_KEY}`,
-        Authorization: `Bearer ${CEREBRAS_API_KEY}`,
+        Authorization: `Bearer ${GROQ_API_KEY}`,
+        // Authorization: `Bearer ${CEREBRAS_API_KEY}`,
       },
       body: JSON.stringify({
-        // model: "openai/gpt-oss-120b",
-        model: "gpt-oss-120b",
-        // include_reasoning: false,
+        model: "openai/gpt-oss-120b",
+        // model: "gpt-oss-120b",
+        include_reasoning: false,
         reasoning_effort: "low",
-        // tool_choice: "required",
+        tool_choice: "required",
         messages: [
           {
             role: "system",
@@ -154,13 +154,13 @@ export async function generateBlogContent(
             content: getBlogPrompt(topic.title, topic.url, topic.description),
           },
         ],
-        // tools: [{ type: "browser_search" }],
+        tools: [{ type: "browser_search" }],
         temperature: 0.7,
       }),
     }
   );
-  console.log(response);
   if (!response.ok) {
+    console.log(response);
     throw new Error(`Failed to generate blog: ${response.statusText}`);
   }
 
@@ -502,19 +502,19 @@ export async function curateTrendingTopicsWithLLM(
       Authorization: `Bearer ${CEREBRAS_API_KEY}`,
     },
     body: JSON.stringify({
-      model: "llama-3.3-70b",
+      model: "gpt-oss-120b",
       messages: [
         {
           role: "user",
           content: getTopicCurationPrompt(rawTopics),
         },
       ],
-      temperature: 0.3,
+      temperature: 0.5,
     }),
   });
-  console.log(response);
 
   if (!response.ok) {
+    console.log(response);
     throw new Error("Failed to curate topics");
   }
 
@@ -569,7 +569,6 @@ export async function fetchHNTopicsOnly(): Promise<RawTopic[]> {
   });
 
   const topTopics = rawTopics.slice(0, 10);
-  console.log({ topTopics });
   console.log(`✅ Selected top ${topTopics.length} HN topics`);
 
   return topTopics;
@@ -592,7 +591,6 @@ export async function fetchDevToTopicsOnly(): Promise<RawTopic[]> {
   });
 
   const topTopics = rawTopics.slice(0, 10);
-  console.log({ topTopics });
   console.log(`✅ Selected top ${topTopics.length} Dev.to topics`);
 
   return topTopics;
