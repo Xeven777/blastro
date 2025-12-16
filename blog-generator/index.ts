@@ -13,6 +13,68 @@ import {
 } from "./utils";
 import type { RawTopic } from "./types";
 
+function selectTopic(
+  rawTopics: RawTopic[],
+  method: "first" | "best" | "random",
+  filterWord?: string
+): RawTopic {
+  if (rawTopics.length === 0) {
+    throw new Error("No topics available for selection");
+  }
+
+  // Filter topics by word occurrence if provided
+  let filteredTopics = rawTopics;
+  if (filterWord) {
+    const lowerWord = filterWord.toLowerCase();
+    filteredTopics = rawTopics
+      .map((topic) => {
+        const titleOccurrences = (
+          topic.title.toLowerCase().match(new RegExp(lowerWord, "g")) || []
+        ).length;
+        const descriptionOccurrences = (
+          (topic.description || "")
+            .toLowerCase()
+            .match(new RegExp(lowerWord, "g")) || []
+        ).length;
+        return {
+          topic,
+          occurrences: titleOccurrences + descriptionOccurrences,
+        };
+      })
+      .filter((item) => item.occurrences > 0)
+      .sort((a, b) => b.occurrences - a.occurrences)
+      .map((item) => item.topic);
+
+    if (filteredTopics.length === 0) {
+      throw new Error(`No topics found containing word: "${filterWord}"`);
+    }
+  }
+
+  if (method === "first") {
+    return filteredTopics[0];
+  }
+
+  if (method === "random") {
+    return filteredTopics[Math.floor(Math.random() * filteredTopics.length)];
+  }
+
+  return filteredTopics.slice(1).reduce((best, topic) => {
+    const bestScore = (best.score ?? 0) as number;
+    const topicScore = (topic.score ?? 0) as number;
+    if (topicScore > bestScore) {
+      return topic;
+    }
+    if (topicScore === bestScore) {
+      const bestComments = (best.comments ?? 0) as number;
+      const topicComments = (topic.comments ?? 0) as number;
+      if (topicComments > bestComments) {
+        return topic;
+      }
+    }
+    return best;
+  }, filteredTopics[0]);
+}
+
 async function main() {
   try {
     console.log("\n🚀 Starting optimized blog generator...\n");
@@ -46,23 +108,14 @@ async function main() {
       );
     });
 
-    // Select the topic with the highest score. If scores tie, prefer more comments.
-    const selectedTopic = rawTopics.reduce((best, t) => {
-      const bestScore = (best.score ?? 0) as number;
-      const tScore = (t.score ?? 0) as number;
-      if (tScore > bestScore) return t;
-      if (tScore === bestScore) {
-        const bestComments = (best.comments ?? 0) as number;
-        const tComments = (t.comments ?? 0) as number;
-        if (tComments > bestComments) return t;
-      }
-      return best;
-    }, rawTopics[0]);
+    const method = "random";
+    const selectedTopic = selectTopic(rawTopics, "random", "saas");
 
     console.log(
-      `\n🎯 Selected: "${selectedTopic.title}" (score: ${
-        selectedTopic.score
-      }, comments: ${selectedTopic.comments || 0})`
+      `\n🎯 Selected (${method}): "${selectedTopic.title}"` +
+        ` (score: ${selectedTopic.score}, comments: ${
+          selectedTopic.comments || 0
+        })`
     );
 
     // Convert RawTopic to TrendingTopic format
