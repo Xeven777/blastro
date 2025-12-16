@@ -1,0 +1,142 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("aiBlog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout>
+  <main class="w-full max-w-5xl mx-auto px-4 py-12">
+    <section>
+      <ul class="grid-container">
+        {
+          posts.map((post) => (
+            <li class="blog-card group">
+              <a href={`/ai-blogs/${post.id}/`} class="h-full">
+                <div class="image-container">
+                  <img
+                    width={720}
+                    height={360}
+                    transition:name={post.data.title}
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="transition-all duration-300"
+                  />
+                </div>
+                <div class="content-container">
+                  <h4 class="title group-hover:text-ngreen transition-all duration-500">
+                    {post.data.title}
+                  </h4>
+                  <p class="mb-0 text-sm opacity-50 space-x-6">
+                    <FormattedDate date={post.data.pubDate} />
+                    <span class="serif italic">
+                      - from{" "}
+                      {post.data.source === "hn" ? "Hacker News" : "Dev.to"}
+                    </span>
+                  </p>
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-1 mt-2">
+                      {post.data.tags.slice(0, 3).map((tag) => (
+                        <span class="text-xs px-2 py-1 bg-zinc-800 rounded text-zinc-300">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
+    gap: 2.5rem;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  /* Card Styling */
+  .blog-card {
+    background: rgb(var(--gray), 0.3);
+    border-radius: 1rem;
+    overflow: hidden;
+    filter: saturate(0.8);
+    box-shadow:
+      0 4px 6px -1px rgba(var(--accent), 0.1),
+      0 2px 4px -1px rgba(var(--accent), 0.06);
+  }
+
+  .blog-card:hover {
+    filter: brightness(1.1) saturate(1.1);
+    transform: translateY(-4px);
+    background: rgb(var(--greenish-black), 0.3);
+  }
+
+  /* Image Container */
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+
+  .blog-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Content Container */
+  .content-container {
+    padding: 1.5rem;
+  }
+
+  /* Typography */
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-clamp: 1;
+    color: rgb(var(--white));
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  /* Featured Post (First Item) */
+  .blog-card:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .blog-card:first-child .title {
+    font-size: 1.875rem;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .grid-container {
+      gap: 1.5rem;
+    }
+
+    .content-container {
+      padding: 1rem;
+    }
+
+    .blog-card:first-child .title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
