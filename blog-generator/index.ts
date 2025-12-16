@@ -108,8 +108,8 @@ async function main() {
       );
     });
 
-    const method = "random";
-    const selectedTopic = selectTopic(rawTopics, "random", "saas");
+    const method = "best";
+    const selectedTopic = selectTopic(rawTopics, method);
 
     console.log(
       `\n🎯 Selected (${method}): "${selectedTopic.title}"` +
