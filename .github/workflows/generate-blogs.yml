@@ -90,12 +90,3 @@ jobs:
             git push
             echo "✅ Committed and pushed changes" >> $GITHUB_STEP_SUMMARY
           fi
-
-      # Optional: Upload logs as artifact on failure
-      - name: Upload logs on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: blog-generation-logs
-          path: blog-output.log
-          retention-days: 7
