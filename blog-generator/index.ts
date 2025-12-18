@@ -1,7 +1,7 @@
 import { writeFile, mkdir } from "fs/promises";
 import { join } from "path";
 import { existsSync } from "fs";
-import { CEREBRAS_API_KEY, GROQ_API_KEY } from "./constants";
+import { CEREBRAS_API_KEY, GROQ_API_KEY, SEO_KEYWORDS } from "./constants";
 import {
   generateBlogContent,
   generateMetadata,
@@ -87,11 +87,36 @@ async function main() {
     const source = determineBlogSource();
     console.log(`📰 Using source: ${source.toUpperCase()}`);
 
+    // Randomly select 3-5 SEO keywords to filter topics
+    const keywordCount = Math.floor(Math.random() * 3) + 3; // 3-5 keywords
+    const selectedKeywords: string[] = [];
+    const keywordsCopy = [...SEO_KEYWORDS];
+
+    for (let i = 0; i < keywordCount; i++) {
+      const randomIndex = Math.floor(Math.random() * keywordsCopy.length);
+      selectedKeywords.push(keywordsCopy[randomIndex]);
+      keywordsCopy.splice(randomIndex, 1);
+    }
+
+    console.log(`🔑 Selected keywords: ${selectedKeywords.join(", ")}`);
+
     let rawTopics: RawTopic[];
     if (source === "hn") {
-      rawTopics = await fetchHNTopicsOnly();
+      rawTopics = await fetchHNTopicsOnly(selectedKeywords);
     } else {
-      rawTopics = await fetchDevToTopicsOnly();
+      rawTopics = await fetchDevToTopicsOnly(selectedKeywords);
+    }
+
+    // Fallback: if no topics found with keywords, try without filtering
+    if (rawTopics.length === 0) {
+      console.log(
+        "\n⚠️  No topics found with selected keywords, fetching without filters..."
+      );
+      if (source === "hn") {
+        rawTopics = await fetchHNTopicsOnly();
+      } else {
+        rawTopics = await fetchDevToTopicsOnly();
+      }
     }
 
     if (rawTopics.length === 0) {
@@ -108,7 +133,7 @@ async function main() {
       );
     });
 
-    const method = "random";
+    const method = "best";
     const selectedTopic = selectTopic(rawTopics, method);
 
     console.log(

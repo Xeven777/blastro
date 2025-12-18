@@ -21,6 +21,7 @@ import {
   BLOG_GENERATION_SYSTEM_PROMPT,
   getBlogPrompt,
   METADATA_GENERATION_PROMPT,
+  CYBERPUNK_IMAGE_STYLE_SYSTEM,
   getTopicCurationPrompt,
 } from "./prompts";
 
@@ -129,18 +130,18 @@ export async function generateBlogContent(
   );
 
   const response = await fetch(
-    "https://api.groq.com/openai/v1/chat/completions",
-    // "https://api.cerebras.ai/v1/chat/completions",
+    // "https://api.groq.com/openai/v1/chat/completions",
+    "https://api.cerebras.ai/v1/chat/completions",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${GROQ_API_KEY}`,
-        // Authorization: `Bearer ${CEREBRAS_API_KEY}`,
+        // Authorization: `Bearer ${GROQ_API_KEY}`,
+        Authorization: `Bearer ${CEREBRAS_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "openai/gpt-oss-120b",
-        // model: "gpt-oss-120b",
+        // model: "openai/gpt-oss-120b",
+        model: "qwen-3-32b",
         include_reasoning: false,
         reasoning_effort: "low",
         tool_choice: "required",
@@ -177,12 +178,6 @@ export async function generateBlogContent(
   // Remove frontmatter if present
   if (blog.trim().startsWith("---")) {
     blog = blog.replace(/^---[\s\S]*?---\s*/, "");
-  }
-
-  // Ensure we start at the required '## Introduction' heading if present
-  const introIndex = blog.indexOf("## Introduction");
-  if (introIndex > 0) {
-    blog = blog.slice(introIndex);
   }
 
   console.log(
@@ -275,8 +270,9 @@ export async function generateAndSaveImage(
 ): Promise<void> {
   try {
     const url = new URL(IMAGE_API_BASE);
-    url.searchParams.set("prompt", prompt);
-    url.searchParams.set("model", "phoenix");
+    const styledPrompt = `${CYBERPUNK_IMAGE_STYLE_SYSTEM} Subject: ${prompt}`;
+    url.searchParams.set("prompt", styledPrompt);
+    url.searchParams.set("model", "lucid");
     url.searchParams.set(
       "negative_prompt",
       "blurry,low quality,text,watermark,ugly"
@@ -397,8 +393,13 @@ export function determineBlogSource(): "hn" | "devto" {
   return day % 2 === 0 ? "hn" : "devto";
 }
 
-export async function fetchHNTrendingTopics(): Promise<RawTopic[]> {
+export async function fetchHNTrendingTopics(
+  keywords?: string[]
+): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching Hacker News trending topics...");
+  if (keywords) {
+    console.log(`   Filtering by keywords: ${keywords.join(", ")}`);
+  }
 
   const now = Date.now();
   const MAX_AGE = 72 * 60 * 60 * 1000; // 72 hours
@@ -431,6 +432,15 @@ export async function fetchHNTrendingTopics(): Promise<RawTopic[]> {
         return null;
       }
 
+      // Keyword filter
+      if (keywords && keywords.length > 0) {
+        const titleLower = item.title.toLowerCase();
+        const matchesKeyword = keywords.some((kw) =>
+          titleLower.includes(kw.toLowerCase())
+        );
+        if (!matchesKeyword) return null;
+      }
+
       return {
         source: "hn" as const,
         title: item.title,
@@ -448,8 +458,13 @@ export async function fetchHNTrendingTopics(): Promise<RawTopic[]> {
   return filtered;
 }
 
-export async function fetchDevToTrendingTopics(): Promise<RawTopic[]> {
+export async function fetchDevToTrendingTopics(
+  keywords?: string[]
+): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching Dev.to trending articles...");
+  if (keywords) {
+    console.log(`   Filtering by keywords: ${keywords.join(", ")}`);
+  }
 
   const params = new URLSearchParams({
     per_page: "30",
@@ -469,12 +484,30 @@ export async function fetchDevToTrendingTopics(): Promise<RawTopic[]> {
   const topics: RawTopic[] = articles
     .filter((a: any) => {
       const publishedAt = new Date(a.published_at).getTime();
-      return (
-        now - publishedAt < MAX_AGE &&
-        a.public_reactions_count > 20 &&
-        !a.title.toLowerCase().includes("career") &&
-        !a.title.toLowerCase().includes("resume")
-      );
+      const titleLower = a.title.toLowerCase();
+      const descriptionLower = (a.description || "").toLowerCase();
+
+      // Base filters
+      if (
+        now - publishedAt >= MAX_AGE ||
+        a.public_reactions_count <= 20 ||
+        titleLower.includes("career") ||
+        titleLower.includes("resume")
+      ) {
+        return false;
+      }
+
+      // Keyword filter
+      if (keywords && keywords.length > 0) {
+        const matchesKeyword = keywords.some(
+          (kw) =>
+            titleLower.includes(kw.toLowerCase()) ||
+            descriptionLower.includes(kw.toLowerCase())
+        );
+        return matchesKeyword;
+      }
+
+      return true;
     })
     .map((a: any) => ({
       source: "devto",
@@ -556,10 +589,12 @@ export async function fetchTrendingTopics2(): Promise<TrendingTopic[]> {
  * Fetch HN topics only (no deduplication, no LLM curation)
  * Returns top topics sorted by score + comments
  */
-export async function fetchHNTopicsOnly(): Promise<RawTopic[]> {
+export async function fetchHNTopicsOnly(
+  keywords?: string[]
+): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching HN topics only (no deduplication)...");
 
-  const rawTopics = await fetchHNTrendingTopics();
+  const rawTopics = await fetchHNTrendingTopics(keywords);
 
   // Sort by engagement (score + comments)
   rawTopics.sort((a, b) => {
@@ -578,10 +613,12 @@ export async function fetchHNTopicsOnly(): Promise<RawTopic[]> {
  * Fetch Dev.to topics only (no deduplication, no LLM curation)
  * Returns top topics sorted by score + comments
  */
-export async function fetchDevToTopicsOnly(): Promise<RawTopic[]> {
+export async function fetchDevToTopicsOnly(
+  keywords?: string[]
+): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching Dev.to topics only (no deduplication)...");
 
-  const rawTopics = await fetchDevToTrendingTopics();
+  const rawTopics = await fetchDevToTrendingTopics(keywords);
 
   // Sort by engagement (score + comments)
   rawTopics.sort((a, b) => {
