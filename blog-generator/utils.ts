@@ -130,18 +130,18 @@ export async function generateBlogContent(
   );
 
   const response = await fetch(
-    // "https://api.groq.com/openai/v1/chat/completions",
-    "https://api.cerebras.ai/v1/chat/completions",
+    "https://api.groq.com/openai/v1/chat/completions",
+    // "https://api.cerebras.ai/v1/chat/completions",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Authorization: `Bearer ${GROQ_API_KEY}`,
-        Authorization: `Bearer ${CEREBRAS_API_KEY}`,
+        Authorization: `Bearer ${GROQ_API_KEY}`,
+        // Authorization: `Bearer ${CEREBRAS_API_KEY}`,
       },
       body: JSON.stringify({
-        // model: "openai/gpt-oss-120b",
-        model: "qwen-3-32b",
+        model: "openai/gpt-oss-120b",
+        // model: "qwen-3-32b",
         include_reasoning: false,
         reasoning_effort: "low",
         tool_choice: "required",
@@ -272,7 +272,7 @@ export async function generateAndSaveImage(
     const url = new URL(IMAGE_API_BASE);
     const styledPrompt = `${CYBERPUNK_IMAGE_STYLE_SYSTEM} Subject: ${prompt}`;
     url.searchParams.set("prompt", styledPrompt);
-    url.searchParams.set("model", "lucid");
+    url.searchParams.set("model", "lucid-origin");
     url.searchParams.set(
       "negative_prompt",
       "blurry,low quality,text,watermark,ugly"

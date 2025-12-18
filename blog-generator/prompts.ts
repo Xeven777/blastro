@@ -43,7 +43,7 @@ SEO:
 
 Content quality:
 - Be technically accurate
-- Use code blocks only if they actually clarify the point (keep them short and correct)
+- No tables.
 - Add exactly 3 image placeholders using [IMAGE:description] distributed throughout the post:
   * Place the FIRST [IMAGE:...] after your first major section (after the Quick take)
   * Place the SECOND [IMAGE:...] in the middle of the post (after a key H2 section)
