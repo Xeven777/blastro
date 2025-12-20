@@ -1,0 +1,68 @@
+
+🚀 Starting optimized blog generator...
+
+📰 Using source: HN
+🔑 Selected keywords: styled-components, Google Cloud, Firebase, Cypress
+
+🔥 Fetching HN topics only (no deduplication)...
+
+🔥 Fetching Hacker News trending topics...
+   Filtering by keywords: styled-components, Google Cloud, Firebase, Cypress
+✅ HN topics fetched: 0
+✅ Selected top 0 HN topics
+
+⚠️  No topics found with selected keywords, fetching without filters...
+
+🔥 Fetching HN topics only (no deduplication)...
+
+🔥 Fetching Hacker News trending topics...
+✅ HN topics fetched: 277
+✅ Selected top 10 HN topics
+
+✅ Found 10 trending topics:
+   1. Beginning January 2026, all ACM publications will be made open access (score: 1985, comments: 237)
+   2. Hacker News front page now, but the titles are honest (score: 1317, comments: 311)
+   3. We pwned X, Vercel, Cursor, and Discord through a supply-chain attack (score: 1118, comments: 419)
+   4. Your job is to deliver code you have proven to work (score: 831, comments: 650)
+   5. History LLMs: Models trained exclusively on pre-1913 texts (score: 824, comments: 395)
+   6. Firefox will have an option to disable all AI features (score: 551, comments: 523)
+   7. Please just try HTMX (score: 586, comments: 461)
+   8. How China built its ‘Manhattan Project’ to rival the West in AI chips (score: 456, comments: 584)
+   9. Are Apple gift cards safe to redeem? (score: 550, comments: 462)
+   10. Classical statues were not painted horribly (score: 623, comments: 324)
+
+🎯 Selected (best): "Beginning January 2026, all ACM publications will be made open access" (score: 1985, comments: 237)
+
+📝 Generating blog content with gpt-oss-120b...
+
+📝 Generating blog with gpt-oss-120b + browser_search: Beginning January 2026, all ACM publications will be made open access
+
+🌐 Researching with web_search...
+✅ Blog generated: 7810 characters (cleaned from 7810)
+
+🏷️  Generating optimized metadata...
+
+🏷️  Generating metadata...
+✅ Metadata generated: ACM Goes Fully Open Access 2026: Free All Research Papers Jan 1
+   Title: ACM Goes Fully Open Access 2026: Free All Research Papers Jan 1
+   Tags: acm-open-access, research-papers, open-access, digital-library, tech-community
+   Slug: acm-goes-fully-open-access-2026-free-all-research-papers-jan-1
+
+🖼️  Generating images in parallel...
+  📸 Queued: header image
+  📸 Queued: content-1
+  📸 Queued: content-2
+  📸 Queued: content-3
+  ✅ Converted header.webp (100KB)
+  ✅ Converted content-2.webp (37KB)
+  ✅ Converted content-3.webp (70KB)
+  ✅ Converted content-1.webp (54KB)
+✅ Generated 4 images
+
+✅ Blog generated successfully!
+   File: src/content/ai-blogs/acm-goes-fully-open-access-2026-free-all-research-papers-jan-1.md
+   Length: 8452 characters
+   Title: ACM Goes Fully Open Access 2026: Free All Research Papers Jan 1
+   Tags: acm-open-access, research-papers, open-access, digital-library, tech-community
+   Source: hn
+   Images: public/ai-blogs/acm-goes-fully-open-access-2026-free-all-research-papers-jan-1/
