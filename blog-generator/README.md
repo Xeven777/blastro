@@ -4,125 +4,148 @@ This blog generator creates AI-powered blog posts from trending topics on Hacker
 
 ## 🚀 Latest Updates (V3)
 
-### **New Workflow (Every 5 Days)**
+### **Smart Source Selection**
 
-- Even days → Hacker News topics only
-- Odd days → Dev.to topics only
-- No deduplication - direct topic selection
+- **Day-based rotation**: Even days → Hacker News, Odd days → Dev.to
+- **Environment override**: Set `BLOG_SOURCE=hn` or `BLOG_SOURCE=devto` (for GitHub Actions)
+- **Direct topic selection**: No deduplication, ranked by engagement (score + comments)
+- **Keyword filtering**: Optional filtering for web development topics
 
 ### **AI Blogs Directory**
 
 - Content saved to: `src/content/ai-blogs/`
 - Images saved to: `public/ai-blogs/`
-- Includes source tracking in frontmatter
+- Source tracking in frontmatter (HN or Dev.to)
 
 ### **Parallelized Operations**
 
 - All images generated concurrently
-- Optimized WebP conversion pipeline
-- See `WORKFLOW_UPDATES.md` for details
+- Optimized WebP conversion pipeline with Sharp
+- 3-4x faster than sequential generation
 
 ## 🚀 Key Features
 
-### 1. **Groq Compound System for Trending Topics** (Legacy)
+### 1. **Direct Source Integration**
 
-- Uses `groq/compound` with built-in `web_search` tool
-- Automatically searches the web for trending topics
-- No manual Hacker News scraping needed
-- Faster and more comprehensive topic discovery
+- **Hacker News**: Top stories from new + best feeds (last 72 hours)
+- **Dev.to**: Trending articles by reactions (last 7 days)
+- Sorted by engagement: score + comments
+- Optional keyword filtering for focused topics
 
-### 2. **Direct Source Integration** (New)
-
-- **Hacker News**: Fetches top stories by score + comments
-- **Dev.to**: Fetches trending articles by reactions
-- Source selection based on day of month
-- No LLM curation needed for AI blogs
-
-### 3. **GPT-OSS 120B with Browser Search**
+### 2. **GPT-OSS 120B Blog Generation**
 
 - Uses `openai/gpt-oss-120b` (131K context window)
 - Built-in `browser_search` tool for research
-- Single API call generates comprehensive blog posts
-- No manual tool orchestration required
+- Web research with `groq/compound` + `web_search`
+- Single API call generates comprehensive 2000-3000 word articles
 
 ### 3. **Intelligent Metadata Generation**
 
-- Analyzes blog content to generate:
-  - SEO-optimized title (50-60 chars)
-  - Compelling description (120-155 chars)
-  - 4-5 relevant tags
-  - High-quality image prompts (1 header + 3 content images)
-- Uses `groq/compound` for creative generation
+- Uses Cerebras `gpt-oss-120b` with JSON schema
+- SEO-optimized title (50-60 chars)
+- Compelling description (120-155 chars)
+- 4-5 relevant tags
+- High-quality image prompts (1 header + 3 content images)
 
 ### 4. **Parallel Image Generation**
 
 - All images generated simultaneously
-- 3-4x faster than sequential generation
+- Lucid Origin model via API
+- Cyberpunk aesthetic styling
 - Header image + 3 content images
-- Proper WebP format support
+- Automatic WebP conversion with Sharp
 
-### 5. **Simplified Architecture**
+### 5. **Streamlined Architecture**
 
-- No custom tools needed (uses Groq's built-in tools)
-- Removed complex tool orchestration code
-- Cleaner, more maintainable codebase
+- No complex tool orchestration
+- Built-in API tools (browser_search, web_search)
+- Clean, maintainable codebase
+- Efficient error handling
 
 ## 🏗️ Architecture
 
 ```
 ┌─────────────────────────────────────────┐
-│  1. Fetch Trending Topics               │
-│     - groq/compound + web_search        │
-│     - Returns 5 trending topics         │
+│  1. Determine Source & Fetch Topics     │
+│     - Day-based or env var selection    │
+│     - HN: new + best stories (72h)      │
+│     - Dev.to: trending articles (7d)    │
+│     - Sort by score + comments          │
 └────────────────┬────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────┐
-│  2. Generate Blog Content               │
-│     - openai/gpt-oss-120b               │
+│  2. Web Research (Optional)             │
+│     - groq/compound + web_search        │
+│     - 6-10 key points + sources         │
+│     - Under 350 words                   │
+└────────────────┬────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────┐
+│  3. Generate Blog Content               │
+│     - openai/gpt-oss-120b (Groq)        │
 │     - browser_search tool               │
+│     - Research notes integration        │
 │     - 2000-3000 word article            │
 └────────────────┬────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────┐
-│  3. Generate Metadata                   │
-│     - groq/compound                     │
+│  4. Generate Metadata                   │
+│     - gpt-oss-120b (Cerebras)           │
+│     - JSON schema validation            │
 │     - Title, description, tags          │
 │     - Image prompts (4 total)           │
 └────────────────┬────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────┐
-│  4. Generate Images (Parallel)          │
-│     - All 4 images at once              │
-│     - Header + 3 content images         │
-│     - WebP format                       │
+│  5. Generate Images (Parallel)          │
+│     - All 4 images concurrently         │
+│     - Lucid Origin model                │
+│     - 1280x720 resolution               │
+│     - Sharp WebP conversion (85%)       │
 └────────────────┬────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────┐
-│  5. Create Markdown File                │
+│  6. Create Markdown File                │
 │     - Frontmatter with metadata         │
-│     - Blog content with images          │
-│     - Save to src/content/blog/         │
+│     - Blog content with embedded images │
+│     - Save to src/content/ai-blogs/     │
 └─────────────────────────────────────────┘
 ```
 
 ## 📦 Usage
 
 ```bash
-# Generate a new blog post
+# Generate a new blog post (automatic source selection)
 bun run generate-blog
+
+# Or with GitHub Actions, set environment variable:
+# BLOG_SOURCE=hn or BLOG_SOURCE=devto
 ```
 
 ## 🔧 Configuration
 
-Set your Groq API key:
+Set your API keys:
 
 ```bash
 export GROQ_API_KEY="your-groq-api-key"
+export CEREBRAS_API_KEY="your-cerebras-api-key"
 ```
+
+### Environment Variables
+
+- `GROQ_API_KEY`: Required for blog generation and web research
+- `CEREBRAS_API_KEY`: Required for metadata generation
+- `BLOG_SOURCE`: Optional override for source selection (`hn` or `devto`)
+
+### Source Selection Logic
+
+1. **Environment Variable**: If `BLOG_SOURCE` is set, uses that source
+2. **Day-based**: Falls back to day of month (even = HN, odd = Dev.to)
 
 ## 🖼️ WebP Conversion
 
@@ -148,48 +171,101 @@ const webpBuffer = await sharp(imageBuffer)
 
 No additional configuration needed! Sharp is already installed as a dependency.
 
-## 🎯 Models Used
+## 🎯 Models & APIs Used
 
-| Purpose         | Model                 | Why                                        |
-| --------------- | --------------------- | ------------------------------------------ |
-| Trending Topics | `groq/compound`       | Built-in web_search, multi-tool support    |
-| Blog Content    | `openai/gpt-oss-120b` | 131K context, browser_search, high quality |
-| Metadata        | `groq/compound`       | Creative generation, web_search for trends |
-| Images          | Flux Schnell API      | Fast, high-quality generation              |
+| Component      | Provider     | Model/Service         | Purpose                          |
+| -------------- | ------------ | --------------------- | -------------------------------- |
+| Topic Research | Groq         | `groq/compound`       | Web search + research notes      |
+| Blog Content   | Groq         | `openai/gpt-oss-120b` | Blog generation + browser search |
+| Metadata       | Cerebras     | `gpt-oss-120b`        | Structured JSON metadata         |
+| Images         | Lucid Origin | `lucid-origin`        | High-quality image generation    |
+| Image Optimize | Sharp        | -                     | WebP conversion                  |
 
-## 📊 Performance Comparison
+## 📊 Performance & Features
 
-| Feature         | Old Version               | New Version                         |
-| --------------- | ------------------------- | ----------------------------------- |
-| Topic Discovery | Manual HN API + filtering | Groq compound web_search            |
-| Blog Generation | Custom tool orchestration | Single API call with browser_search |
-| Metadata        | Regex extraction          | AI-generated with SEO optimization  |
-| Images          | Sequential generation     | Parallel generation (3-4x faster)   |
-| Total Time      | ~5-7 minutes              | ~2-3 minutes                        |
+| Aspect        | Implementation                | Result                             |
+| ------------- | ----------------------------- | ---------------------------------- |
+| Topic Sources | HN API + Dev.to API           | Real-time trending topics          |
+| Filtering     | Score + comments ranking      | High engagement content            |
+| Research      | groq/compound web_search      | Factual, sourced research          |
+| Blog Quality  | 131K context + browser_search | Comprehensive 2000-3000 word posts |
+| Metadata      | JSON schema validation        | Consistent, structured output      |
+| Images        | Parallel generation           | 3-4x faster (4 images at once)     |
+| Image Format  | Sharp WebP (85% quality)      | 60-80% smaller than PNG            |
+| Total Time    | ~2-3 minutes                  | End-to-end blog generation         |
 
 ## 🐛 Troubleshooting
 
 ### Rate Limits
 
-If you hit rate limits, the functions will handle retries automatically with exponential backoff.
+If you hit rate limits, the functions will handle retries automatically with exponential backoff (where implemented).
 
 ### No Topics Found
 
-The web search might not return web dev topics. Try running again as trending topics change frequently.
+- **HN**: May not have recent stories matching filters (check 72-hour window)
+- **Dev.to**: May not have articles with enough reactions (minimum 20)
+- Try running again or check source manually
 
 ### Image Generation Fails
 
-Individual image failures are logged but don't stop the process. Check console warnings.
+Individual image failures are logged but don't stop the process. Check console warnings for details.
 
-## 📝 Output
+### WebP Conversion Issues
+
+Sharp library handles conversion automatically. If images fail to convert, check console errors.
+
+## 🔍 Topic Filtering
+
+### Hacker News
+
+- Age: Last 72 hours only
+- Excludes: "Ask HN", "Show HN Hiring", "Who is hiring"
+- Optional: Keyword filtering
+
+### Dev.to
+
+- Age: Last 7 days only
+- Minimum reactions: 20+
+- Excludes: Career/resume posts
+- Optional: Keyword filtering
+
+## 📝 Output Structure
 
 Generated blog posts include:
 
-- SEO-optimized frontmatter
-- 2000-3000 word content
-- 6-8 code examples
-- 4 images (1 header + 3 content)
-- 4-5 relevant tags
-- Compelling description
+### Frontmatter
 
-Example output: `src/content/blog/next-js-15-introduces-partial-prerendering.md`
+- SEO-optimized title (50-60 chars)
+- Compelling description (120-155 chars)
+- 4-5 relevant tags
+- Source tracking (hn/devto)
+- Publication date
+
+### Content
+
+- 2000-3000 word article
+- 6-8 code examples
+- Research-backed information
+- Inline source citations (when available)
+
+### Images
+
+- 1 header image (1280x720 WebP)
+- 3 content images (1280x720 WebP)
+- Cyberpunk aesthetic styling
+- Auto-embedded in markdown
+
+### File Structure
+
+```
+src/content/ai-blogs/
+  └── topic-slug.md
+public/ai-blogs/
+  └── topic-slug/
+      ├── header.webp
+      ├── content-1.webp
+      ├── content-2.webp
+      └── content-3.webp
+```
+
+Example output: `src/content/ai-blogs/scaling-saas-products-a-developer-s-guide-to-growth.md`

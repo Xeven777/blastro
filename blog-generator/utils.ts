@@ -25,6 +25,67 @@ import {
   getTopicCurationPrompt,
 } from "./prompts";
 
+async function readErrorBody(response: Response): Promise<string> {
+  try {
+    const text = await response.text();
+    if (!text) return "";
+    try {
+      const json = JSON.parse(text) as any;
+      const message =
+        json?.error?.message || json?.message || json?.error || undefined;
+      return message ? `${message}\n${text}` : text;
+    } catch {
+      return text;
+    }
+  } catch {
+    return "";
+  }
+}
+
+async function researchWithWebSearch(topic: TrendingTopic): Promise<string> {
+  const response = await fetch(
+    "https://api.groq.com/openai/v1/chat/completions",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${GROQ_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "groq/compound",
+        temperature: 0.2,
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are a meticulous research assistant. Use web_search when needed. Provide concise, technically accurate notes with source URLs.",
+          },
+          {
+            role: "user",
+            content: `Research the topic: ${topic.title}\n\n${
+              topic.description ? `Context: ${topic.description}\n` : ""
+            }${
+              topic.url ? `Reference: ${topic.url}\n` : ""
+            }\nReturn markdown with:\n- 6–10 bullet key points (facts, definitions, pitfalls, best practices)\n- A short list of 5–10 source URLs under a "Sources" heading\nKeep it under 350 words.`,
+          },
+        ],
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    const details = await readErrorBody(response);
+    throw new Error(
+      `Web research failed (${response.status} ${response.statusText})${
+        details ? `\n${details}` : ""
+      }`
+    );
+  }
+
+  const data: GroqResponse = await response.json();
+  return data.choices[0].message.content;
+}
+
 /**
  * Fetch trending web dev topics using gpt-oss-20b with built-in browser_search
  */
@@ -72,7 +133,12 @@ export async function fetchTrendingTopics(): Promise<TrendingTopic[]> {
   );
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch topics: ${response.statusText}`);
+    const details = await readErrorBody(response);
+    throw new Error(
+      `Failed to fetch topics (${response.status} ${response.statusText})${
+        details ? `\n${details}` : ""
+      }`
+    );
   }
 
   const data: GroqResponse = await response.json();
@@ -129,6 +195,24 @@ export async function generateBlogContent(
     topic.title
   );
 
+  let researchNotes = "";
+  try {
+    console.log("\n🌐 Researching with web_search...");
+    researchNotes = await researchWithWebSearch(topic);
+  } catch (err) {
+    console.warn(
+      `⚠️  Web research unavailable; proceeding without it: ${
+        (err as Error).message
+      }`
+    );
+  }
+
+  const userPrompt =
+    getBlogPrompt(topic.title, topic.url, topic.description) +
+    (researchNotes
+      ? `\n\nResearch notes (use these to stay accurate; cite sources by linking URLs inline when making specific claims):\n\n${researchNotes}`
+      : "");
+
   const response = await fetch(
     "https://api.groq.com/openai/v1/chat/completions",
     // "https://api.cerebras.ai/v1/chat/completions",
@@ -140,11 +224,6 @@ export async function generateBlogContent(
         // Authorization: `Bearer ${CEREBRAS_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "openai/gpt-oss-120b",
-        // model: "qwen-3-32b",
-        include_reasoning: false,
-        reasoning_effort: "low",
-        tool_choice: "required",
         messages: [
           {
             role: "system",
@@ -152,17 +231,31 @@ export async function generateBlogContent(
           },
           {
             role: "user",
-            content: getBlogPrompt(topic.title, topic.url, topic.description),
+            content: userPrompt,
           },
         ],
-        tools: [{ type: "browser_search" }],
-        temperature: 0.7,
+        model: "openai/gpt-oss-120b",
+        // model: "qwen-3-32b",
+        temperature: 1,
+        top_p: 1,
+        stream: false,
+        reasoning_effort: "medium",
+        tool_choice: "auto",
+        tools: [
+          {
+            type: "browser_search",
+          },
+        ],
       }),
     }
   );
   if (!response.ok) {
-    console.log(response);
-    throw new Error(`Failed to generate blog: ${response.statusText}`);
+    const details = await readErrorBody(response);
+    throw new Error(
+      `Failed to generate blog (${response.status} ${response.statusText})${
+        details ? `\n${details}` : ""
+      }`
+    );
   }
 
   const data: GroqResponse = await response.json();
