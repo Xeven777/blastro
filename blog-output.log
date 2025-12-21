@@ -1,68 +1,72 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: HN
-🔑 Selected keywords: styled-components, Google Cloud, Firebase, Cypress
+📰 Using source: DEVTO
+🔑 Selected keywords: NestJS, lazy loading, Next.js, Chakra UI
 
-🔥 Fetching HN topics only (no deduplication)...
+🔥 Fetching Dev.to topics only (no deduplication)...
 
-🔥 Fetching Hacker News trending topics...
-   Filtering by keywords: styled-components, Google Cloud, Firebase, Cypress
-✅ HN topics fetched: 0
-✅ Selected top 0 HN topics
+🔥 Fetching Dev.to trending articles...
+   Filtering by keywords: NestJS, lazy loading, Next.js, Chakra UI
+✅ Dev.to topics fetched: 0
+✅ Selected top 0 Dev.to topics
 
 ⚠️  No topics found with selected keywords, fetching without filters...
 
-🔥 Fetching HN topics only (no deduplication)...
+🔥 Fetching Dev.to topics only (no deduplication)...
 
-🔥 Fetching Hacker News trending topics...
-✅ HN topics fetched: 277
-✅ Selected top 10 HN topics
+🔥 Fetching Dev.to trending articles...
+✅ Dev.to topics fetched: 21
+✅ Selected top 10 Dev.to topics
 
 ✅ Found 10 trending topics:
-   1. Beginning January 2026, all ACM publications will be made open access (score: 1985, comments: 237)
-   2. Hacker News front page now, but the titles are honest (score: 1317, comments: 311)
-   3. We pwned X, Vercel, Cursor, and Discord through a supply-chain attack (score: 1118, comments: 419)
-   4. Your job is to deliver code you have proven to work (score: 831, comments: 650)
-   5. History LLMs: Models trained exclusively on pre-1913 texts (score: 824, comments: 395)
-   6. Firefox will have an option to disable all AI features (score: 551, comments: 523)
-   7. Please just try HTMX (score: 586, comments: 461)
-   8. How China built its ‘Manhattan Project’ to rival the West in AI chips (score: 456, comments: 584)
-   9. Are Apple gift cards safe to redeem? (score: 550, comments: 462)
-   10. Classical statues were not painted horribly (score: 623, comments: 324)
+   1. What was your win this week??? (score: 23, comments: 46)
+   2. ❄️A Five-Minute UI Feature That Became an XSS Time Bomb (score: 50, comments: 17)
+   3. Building Scalable SaaS Products: A Developer's Guide (score: 60, comments: 4)
+   4. My OSS Stalled for 3 Months Because of Misguided Vibe Coding—This Is the Full Reboot Story (score: 35, comments: 19)
+   5. How to Become an AWS Community Builder (score: 39, comments: 14)
+   6. Is "Vibe Coding" Ruining My CS Degree? (score: 33, comments: 18)
+   7. Your Site Works in Chrome. Congrats, You've Alienated 15% of Users (score: 35, comments: 15)
+   8. I've FINALLY launched my Product!! (score: 44, comments: 4)
+   9. 🧠How to make Codex boost your mood like good old Claude Code (Getting back You're absolutely right!)🤖 (score: 37, comments: 10)
+   10. 5 Terminal Commands That Saved Me Hours of Clicking (score: 32, comments: 14)
 
-🎯 Selected (best): "Beginning January 2026, all ACM publications will be made open access" (score: 1985, comments: 237)
+🎯 Selected (best): "Building Scalable SaaS Products: A Developer's Guide" (score: 60, comments: 4)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: Beginning January 2026, all ACM publications will be made open access
+📝 Generating blog with gpt-oss-120b + browser_search: Building Scalable SaaS Products: A Developer's Guide
 
 🌐 Researching with web_search...
-✅ Blog generated: 7810 characters (cleaned from 7810)
+⚠️  Web research unavailable; proceeding without it: Web research failed (413 Payload Too Large)
+Request Entity Too Large
+{"error":{"message":"Request Entity Too Large","type":"invalid_request_error","code":"request_too_large"}}
+
+✅ Blog generated: 7872 characters (cleaned from 7872)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: ACM Goes Fully Open Access 2026: Free All Research Papers Jan 1
-   Title: ACM Goes Fully Open Access 2026: Free All Research Papers Jan 1
-   Tags: acm-open-access, research-papers, open-access, digital-library, tech-community
-   Slug: acm-goes-fully-open-access-2026-free-all-research-papers-jan-1
+✅ Metadata generated: Build Scalable SaaS Products: Fast, Cheap, Resilient Architecture
+   Title: Build Scalable SaaS Products: Fast, Cheap, Resilient Architecture
+   Tags: saas, scalability, microservices, cloud-architecture, devops
+   Slug: build-scalable-saas-products-fast-cheap-resilient-architecture
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
   📸 Queued: content-3
-  ✅ Converted header.webp (100KB)
-  ✅ Converted content-2.webp (37KB)
-  ✅ Converted content-3.webp (70KB)
-  ✅ Converted content-1.webp (54KB)
+  ✅ Converted content-2.webp (31KB)
+  ✅ Converted content-3.webp (74KB)
+  ✅ Converted header.webp (75KB)
+  ✅ Converted content-1.webp (41KB)
 ✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/acm-goes-fully-open-access-2026-free-all-research-papers-jan-1.md
-   Length: 8452 characters
-   Title: ACM Goes Fully Open Access 2026: Free All Research Papers Jan 1
-   Tags: acm-open-access, research-papers, open-access, digital-library, tech-community
-   Source: hn
-   Images: public/ai-blogs/acm-goes-fully-open-access-2026-free-all-research-papers-jan-1/
+   File: src/content/ai-blogs/build-scalable-saas-products-fast-cheap-resilient-architecture.md
+   Length: 8557 characters
+   Title: Build Scalable SaaS Products: Fast, Cheap, Resilient Architecture
+   Tags: saas, scalability, microservices, cloud-architecture, devops
+   Source: devto
+   Images: public/ai-blogs/build-scalable-saas-products-fast-cheap-resilient-architecture/
