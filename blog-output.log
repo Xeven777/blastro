@@ -1,72 +1,72 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: DEVTO
-🔑 Selected keywords: NestJS, lazy loading, Next.js, Chakra UI
+📰 Using source: HN
+🔑 Selected keywords: Next.js, Jotai, Remix, PostgreSQL, Service Workers
 
-🔥 Fetching Dev.to topics only (no deduplication)...
+🔥 Fetching HN topics only (no deduplication)...
 
-🔥 Fetching Dev.to trending articles...
-   Filtering by keywords: NestJS, lazy loading, Next.js, Chakra UI
-✅ Dev.to topics fetched: 0
-✅ Selected top 0 Dev.to topics
+🔥 Fetching Hacker News trending topics...
+   Filtering by keywords: Next.js, Jotai, Remix, PostgreSQL, Service Workers
+✅ HN topics fetched: 0
+✅ Selected top 0 HN topics
 
 ⚠️  No topics found with selected keywords, fetching without filters...
 
-🔥 Fetching Dev.to topics only (no deduplication)...
+🔥 Fetching HN topics only (no deduplication)...
 
-🔥 Fetching Dev.to trending articles...
-✅ Dev.to topics fetched: 21
-✅ Selected top 10 Dev.to topics
+🔥 Fetching Hacker News trending topics...
+✅ HN topics fetched: 279
+✅ Selected top 10 HN topics
 
 ✅ Found 10 trending topics:
-   1. What was your win this week??? (score: 23, comments: 46)
-   2. ❄️A Five-Minute UI Feature That Became an XSS Time Bomb (score: 50, comments: 17)
-   3. Building Scalable SaaS Products: A Developer's Guide (score: 60, comments: 4)
-   4. My OSS Stalled for 3 Months Because of Misguided Vibe Coding—This Is the Full Reboot Story (score: 35, comments: 19)
-   5. How to Become an AWS Community Builder (score: 39, comments: 14)
-   6. Is "Vibe Coding" Ruining My CS Degree? (score: 33, comments: 18)
-   7. Your Site Works in Chrome. Congrats, You've Alienated 15% of Users (score: 35, comments: 15)
-   8. I've FINALLY launched my Product!! (score: 44, comments: 4)
-   9. 🧠How to make Codex boost your mood like good old Claude Code (Getting back You're absolutely right!)🤖 (score: 37, comments: 10)
-   10. 5 Terminal Commands That Saved Me Hours of Clicking (score: 32, comments: 14)
+   1. Tell HN: Merry Christmas (score: 1912, comments: 419)
+   2. We invited a man into our home at Christmas and he stayed with us for 45 years (score: 1039, comments: 248)
+   3. Nvidia to buy assets from Groq for $20B cash (score: 665, comments: 391)
+   4. Phoenix: A modern X server written from scratch in Zig (score: 642, comments: 390)
+   5. Ruby 4.0.0 (score: 719, comments: 170)
+   6. I'm returning my Framework 16 (score: 306, comments: 546)
+   7. Maybe the default settings are too high (score: 568, comments: 167)
+   8. Rob Pike Goes Nuclear over GenAI (score: 331, comments: 274)
+   9. Show HN: Minimalist editor that lives in browser, stores everything in the URL (score: 443, comments: 162)
+   10. Alzheimer’s disease can be reversed in animal models? Study (score: 458, comments: 112)
 
-🎯 Selected (best): "Building Scalable SaaS Products: A Developer's Guide" (score: 60, comments: 4)
+🎯 Selected (best): "Tell HN: Merry Christmas" (score: 1912, comments: 419)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: Building Scalable SaaS Products: A Developer's Guide
+📝 Generating blog with gpt-oss-120b + browser_search: Tell HN: Merry Christmas
 
 🌐 Researching with web_search...
 ⚠️  Web research unavailable; proceeding without it: Web research failed (413 Payload Too Large)
 Request Entity Too Large
 {"error":{"message":"Request Entity Too Large","type":"invalid_request_error","code":"request_too_large"}}
 
-✅ Blog generated: 7872 characters (cleaned from 7872)
+✅ Blog generated: 6522 characters (cleaned from 6522)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Build Scalable SaaS Products: Fast, Cheap, Resilient Architecture
-   Title: Build Scalable SaaS Products: Fast, Cheap, Resilient Architecture
-   Tags: saas, scalability, microservices, cloud-architecture, devops
-   Slug: build-scalable-saas-products-fast-cheap-resilient-architecture
+✅ Metadata generated: Tell HN: Merry Christmas – Holiday Culture Insight for Tech Communities
+   Title: Tell HN: Merry Christmas – Holiday Culture Insight for Tech Communities
+   Tags: hacker-news, community-engagement, holiday-marketing, ui-ux, developer-culture
+   Slug: tell-hn-merry-christmas-holiday-culture-insight-for-tech-communities
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
   📸 Queued: content-3
-  ✅ Converted content-2.webp (31KB)
-  ✅ Converted content-3.webp (74KB)
-  ✅ Converted header.webp (75KB)
-  ✅ Converted content-1.webp (41KB)
+  ✅ Converted content-2.webp (29KB)
+  ✅ Converted content-3.webp (42KB)
+  ✅ Converted header.webp (66KB)
+  ✅ Converted content-1.webp (53KB)
 ✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/build-scalable-saas-products-fast-cheap-resilient-architecture.md
-   Length: 8557 characters
-   Title: Build Scalable SaaS Products: Fast, Cheap, Resilient Architecture
-   Tags: saas, scalability, microservices, cloud-architecture, devops
-   Source: devto
-   Images: public/ai-blogs/build-scalable-saas-products-fast-cheap-resilient-architecture/
+   File: src/content/ai-blogs/tell-hn-merry-christmas-holiday-culture-insight-for-tech-communities.md
+   Length: 7242 characters
+   Title: Tell HN: Merry Christmas – Holiday Culture Insight for Tech Communities
+   Tags: hacker-news, community-engagement, holiday-marketing, ui-ux, developer-culture
+   Source: hn
+   Images: public/ai-blogs/tell-hn-merry-christmas-holiday-culture-insight-for-tech-communities/
