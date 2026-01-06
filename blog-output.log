@@ -1,68 +1,50 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: DEVTO
-🔑 Selected keywords: Web Components, Deno, Prisma, OpenAI, WebGPU
+📰 Using source: HN
+🔑 Selected keywords: CI/CD, UI/UX, Next.js, JavaScript, React Native
 
-🔥 Fetching Dev.to topics only (no deduplication)...
+🔥 Fetching HN topics only (no deduplication)...
 
-🔥 Fetching Dev.to trending articles...
-   Filtering by keywords: Web Components, Deno, Prisma, OpenAI, WebGPU
-✅ Dev.to topics fetched: 0
-✅ Selected top 0 Dev.to topics
+🔥 Fetching Hacker News trending topics...
+   Filtering by keywords: CI/CD, UI/UX, Next.js, JavaScript, React Native
+✅ HN topics fetched: 2
+✅ Selected top 2 HN topics
 
-⚠️  No topics found with selected keywords, fetching without filters...
+✅ Found 2 trending topics:
+   1. JavaScript engines zoo – Compare every JavaScript engine (score: 197, comments: 89)
+   2. GitLab: Active Incident Around Website, API, CI/CD (score: 1, comments: 1)
 
-🔥 Fetching Dev.to topics only (no deduplication)...
-
-🔥 Fetching Dev.to trending articles...
-✅ Dev.to topics fetched: 12
-✅ Selected top 10 Dev.to topics
-
-✅ Found 10 trending topics:
-   1. Coding Without Pressure: How Slowing Down Helped Me Learn Faster (score: 224, comments: 83)
-   2. How was your 2025? (score: 44, comments: 44)
-   3. Skills They Don't Teach You in Tutorials but Companies Actually Pay For (score: 65, comments: 7)
-   4. I Built a Production RAG System for $5/month (Most Alternatives Cost $100-200+) (score: 42, comments: 19)
-   5. What was your win this week?! (score: 22, comments: 35)
-   6. DevOps From Scratch: Entry #01 (score: 45, comments: 8)
-   7. “Why Do You Code?” - A Surprisingly Hard Question (score: 24, comments: 24)
-   8. How to Create Never-Ending Fun (🎢RollerCoaster.js + React Three Fiber + AI) (score: 33, comments: 8)
-   9. A short talk at CloudNexus made me rethink how students are using AI (score: 34, comments: 4)
-   10. I Built a Tool to Stop Wasting Time on Toxic Open Source Projects (score: 25, comments: 11)
-
-🎯 Selected (best): "Coding Without Pressure: How Slowing Down Helped Me Learn Faster" (score: 224, comments: 83)
+🎯 Selected (best): "JavaScript engines zoo – Compare every JavaScript engine" (score: 197, comments: 89)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: Coding Without Pressure: How Slowing Down Helped Me Learn Faster
+📝 Generating blog with gpt-oss-120b + browser_search: JavaScript engines zoo – Compare every JavaScript engine
 
 🌐 Researching with web_search...
-✅ Blog generated: 7396 characters (cleaned from 7396)
+✅ Blog generated: 8164 characters (cleaned from 8164)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Slow Coding: Boost Learning Speed Without Pressure
-   Title: Slow Coding: Boost Learning Speed Without Pressure
-   Tags: software-development, learning-techniques, burnout-prevention, productivity, neuroscience
-   Slug: slow-coding-boost-learning-speed-without-pressure
+✅ Metadata generated: Ultimate JavaScript Engine Zoo: Compare Performance, Size & License
+   Title: Ultimate JavaScript Engine Zoo: Compare Performance, Size & License
+   Tags: javascript, engine-comparison, performance, iot, open-source
+   Slug: ultimate-javascript-engine-zoo-compare-performance-size-license
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
-  📸 Queued: content-3
-  ✅ Converted header.webp (26KB)
-  ✅ Converted content-2.webp (72KB)
-  ✅ Converted content-1.webp (49KB)
-  ✅ Converted content-3.webp (69KB)
-✅ Generated 4 images
+  ✅ Converted content-1.webp (46KB)
+  ✅ Converted header.webp (63KB)
+  ✅ Converted content-2.webp (50KB)
+✅ Generated 3 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/slow-coding-boost-learning-speed-without-pressure.md
-   Length: 8133 characters
-   Title: Slow Coding: Boost Learning Speed Without Pressure
-   Tags: software-development, learning-techniques, burnout-prevention, productivity, neuroscience
-   Source: devto
-   Images: public/ai-blogs/slow-coding-boost-learning-speed-without-pressure/
+   File: src/content/ai-blogs/ultimate-javascript-engine-zoo-compare-performance-size-license.md
+   Length: 8711 characters
+   Title: Ultimate JavaScript Engine Zoo: Compare Performance, Size & License
+   Tags: javascript, engine-comparison, performance, iot, open-source
+   Source: hn
+   Images: public/ai-blogs/ultimate-javascript-engine-zoo-compare-performance-size-license/
