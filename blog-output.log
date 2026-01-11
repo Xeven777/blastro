@@ -1,50 +1,54 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: HN
-🔑 Selected keywords: CI/CD, UI/UX, Next.js, JavaScript, React Native
+📰 Using source: DEVTO
+🔑 Selected keywords: Cloudflare Workers, Go, image optimization, Markdown, UI/UX
 
-🔥 Fetching HN topics only (no deduplication)...
+🔥 Fetching Dev.to topics only (no deduplication)...
 
-🔥 Fetching Hacker News trending topics...
-   Filtering by keywords: CI/CD, UI/UX, Next.js, JavaScript, React Native
-✅ HN topics fetched: 2
-✅ Selected top 2 HN topics
+🔥 Fetching Dev.to trending articles...
+   Filtering by keywords: Cloudflare Workers, Go, image optimization, Markdown, UI/UX
+✅ Dev.to topics fetched: 6
+✅ Selected top 6 Dev.to topics
 
-✅ Found 2 trending topics:
-   1. JavaScript engines zoo – Compare every JavaScript engine (score: 197, comments: 89)
-   2. GitLab: Active Incident Around Website, API, CI/CD (score: 1, comments: 1)
+✅ Found 6 trending topics:
+   1. Bifrost: The fastest way to build AI applications that never go down (score: 127, comments: 7)
+   2. Join the Algolia Agent Studio Challenge: $3,000 in Prizes! (score: 92, comments: 11)
+   3. Do you have any New Year resolutions or goals? (score: 26, comments: 54)
+   4. Beyond the Linear CV (score: 27, comments: 18)
+   5. An Honest Review of Google Antigravity (score: 29, comments: 10)
+   6. Google's LEGO tribute 🧩 (score: 24, comments: 8)
 
-🎯 Selected (best): "JavaScript engines zoo – Compare every JavaScript engine" (score: 197, comments: 89)
+🎯 Selected (best): "Bifrost: The fastest way to build AI applications that never go down" (score: 127, comments: 7)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: JavaScript engines zoo – Compare every JavaScript engine
+📝 Generating blog with gpt-oss-120b + browser_search: Bifrost: The fastest way to build AI applications that never go down
 
 🌐 Researching with web_search...
-✅ Blog generated: 8164 characters (cleaned from 8164)
+✅ Blog generated: 8061 characters (cleaned from 8061)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Ultimate JavaScript Engine Zoo: Compare Performance, Size & License
-   Title: Ultimate JavaScript Engine Zoo: Compare Performance, Size & License
-   Tags: javascript, engine-comparison, performance, iot, open-source
-   Slug: ultimate-javascript-engine-zoo-compare-performance-size-license
+✅ Metadata generated: Bifrost: Ultra‑Fast, Zero‑Downtime AI Gateway for Multi‑LLM Apps
+   Title: Bifrost: Ultra‑Fast, Zero‑Downtime AI Gateway for Multi‑LLM Apps
+   Tags: ai-gateway, llm-integration, go-language, multi-cloud, devops
+   Slug: bifrost-ultra-fast-zero-downtime-ai-gateway-for-multi-llm-apps
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
-  ✅ Converted content-1.webp (46KB)
-  ✅ Converted header.webp (63KB)
-  ✅ Converted content-2.webp (50KB)
+  ✅ Converted content-1.webp (50KB)
+  ✅ Converted header.webp (71KB)
+  ✅ Converted content-2.webp (72KB)
 ✅ Generated 3 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/ultimate-javascript-engine-zoo-compare-performance-size-license.md
-   Length: 8711 characters
-   Title: Ultimate JavaScript Engine Zoo: Compare Performance, Size & License
-   Tags: javascript, engine-comparison, performance, iot, open-source
-   Source: hn
-   Images: public/ai-blogs/ultimate-javascript-engine-zoo-compare-performance-size-license/
+   File: src/content/ai-blogs/bifrost-ultra-fast-zero-downtime-ai-gateway-for-multi-llm-apps.md
+   Length: 8650 characters
+   Title: Bifrost: Ultra‑Fast, Zero‑Downtime AI Gateway for Multi‑LLM Apps
+   Tags: ai-gateway, llm-integration, go-language, multi-cloud, devops
+   Source: devto
+   Images: public/ai-blogs/bifrost-ultra-fast-zero-downtime-ai-gateway-for-multi-llm-apps/
