@@ -1,6 +1,6 @@
 ---
 title: "Cool and Unique Google Fonts You must try!"
-description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro."
+description: "Discover 8 underrated Google Fonts that can elevate your design game. From sleek sans-serifs to futuristic styles, these fonts are free and perfect for modern projects."
 pubDate: "Jan 11 2025"
 heroImage: "/assets/googlefonts.jpg"
 author: "Anish"

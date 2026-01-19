@@ -70,7 +70,7 @@ async function researchWithWebSearch(topic: TrendingTopic): Promise<string> {
           },
         ],
       }),
-    }
+    },
   );
 
   if (!response.ok) {
@@ -78,7 +78,7 @@ async function researchWithWebSearch(topic: TrendingTopic): Promise<string> {
     throw new Error(
       `Web research failed (${response.status} ${response.statusText})${
         details ? `\n${details}` : ""
-      }`
+      }`,
     );
   }
 
@@ -129,7 +129,7 @@ export async function fetchTrendingTopics(): Promise<TrendingTopic[]> {
           },
         ],
       }),
-    }
+    },
   );
 
   if (!response.ok) {
@@ -137,7 +137,7 @@ export async function fetchTrendingTopics(): Promise<TrendingTopic[]> {
     throw new Error(
       `Failed to fetch topics (${response.status} ${response.statusText})${
         details ? `\n${details}` : ""
-      }`
+      }`,
     );
   }
 
@@ -152,7 +152,7 @@ export async function fetchTrendingTopics(): Promise<TrendingTopic[]> {
     }
     if (content && Array.isArray((content as any).topics)) {
       console.log(
-        `✅ Retrieved ${(content as any).topics.length} trending topics`
+        `✅ Retrieved ${(content as any).topics.length} trending topics`,
       );
       return (content as any).topics as TrendingTopic[];
     }
@@ -166,8 +166,8 @@ export async function fetchTrendingTopics(): Promise<TrendingTopic[]> {
     const topics = Array.isArray(parsed)
       ? parsed
       : parsed?.topics && Array.isArray(parsed.topics)
-      ? parsed.topics
-      : null;
+        ? parsed.topics
+        : null;
 
     if (!topics) {
       throw new Error("Parsed JSON doesn't contain a topics array");
@@ -179,7 +179,7 @@ export async function fetchTrendingTopics(): Promise<TrendingTopic[]> {
     throw new Error(
       `Failed to parse topics JSON: ${
         (err as Error).message
-      }\nRaw response:\n${content}`
+      }\nRaw response:\n${content}`,
     );
   }
 }
@@ -188,11 +188,11 @@ export async function fetchTrendingTopics(): Promise<TrendingTopic[]> {
  * Generate blog content using openai/gpt-oss-120b with browser_search
  */
 export async function generateBlogContent(
-  topic: TrendingTopic
+  topic: TrendingTopic,
 ): Promise<string> {
   console.log(
     "\n📝 Generating blog with gpt-oss-120b + browser_search:",
-    topic.title
+    topic.title,
   );
 
   let researchNotes = "";
@@ -203,7 +203,7 @@ export async function generateBlogContent(
     console.warn(
       `⚠️  Web research unavailable; proceeding without it: ${
         (err as Error).message
-      }`
+      }`,
     );
   }
 
@@ -247,14 +247,14 @@ export async function generateBlogContent(
           },
         ],
       }),
-    }
+    },
   );
   if (!response.ok) {
     const details = await readErrorBody(response);
     throw new Error(
       `Failed to generate blog (${response.status} ${response.statusText})${
         details ? `\n${details}` : ""
-      }`
+      }`,
     );
   }
 
@@ -274,7 +274,7 @@ export async function generateBlogContent(
   }
 
   console.log(
-    `✅ Blog generated: ${blog.length} characters (cleaned from ${content.length})`
+    `✅ Blog generated: ${blog.length} characters (cleaned from ${content.length})`,
   );
   return blog;
 }
@@ -283,7 +283,7 @@ export async function generateBlogContent(
  * Generate metadata from blog content using gpt-oss-120b from cerebras.ai
  */
 export async function generateMetadata(
-  blogContent: string
+  blogContent: string,
 ): Promise<BlogMetadata> {
   console.log("\n🏷️  Generating metadata...");
 
@@ -347,7 +347,7 @@ export async function generateMetadata(
     throw new Error(
       `Failed to parse metadata JSON: ${
         (err as Error).message
-      }\nRaw response:\n${content}`
+      }\nRaw response:\n${content}`,
     );
   }
 }
@@ -359,7 +359,7 @@ export async function generateMetadata(
 export async function generateAndSaveImage(
   prompt: string,
   filename: string,
-  imageDir: string
+  imageDir: string,
 ): Promise<void> {
   try {
     const url = new URL(IMAGE_API_BASE);
@@ -368,7 +368,7 @@ export async function generateAndSaveImage(
     url.searchParams.set("model", "lucid-origin");
     url.searchParams.set(
       "negative_prompt",
-      "blurry,low quality,text,watermark,ugly"
+      "blurry,low quality,text,watermark,ugly",
     );
     url.searchParams.set("height", "720");
     url.searchParams.set("width", "1280");
@@ -392,12 +392,12 @@ export async function generateAndSaveImage(
 
     await writeFile(
       join(imageDir, `${filename}.webp`),
-      new Uint8Array(webpBuffer)
+      new Uint8Array(webpBuffer),
     );
     console.log(
       `  ✅ Converted ${filename}.webp (${Math.round(
-        webpBuffer.length / 1024
-      )}KB)`
+        webpBuffer.length / 1024,
+      )}KB)`,
     );
   } catch (error) {
     console.error(`  ❌ Failed to generate ${filename}:`, error);
@@ -419,7 +419,7 @@ export async function generateAllImages(
   metadata: BlogMetadata,
   blogContent: string,
   slug: string,
-  blogType: "blog" | "ai-blogs" = "blog"
+  blogType: "blog" | "ai-blogs" = "blog",
 ): Promise<string> {
   console.log("\n🖼️  Generating images in parallel...");
 
@@ -430,21 +430,21 @@ export async function generateAllImages(
 
   // Extract [IMAGE:description] placeholders from content
   const imageRegex = /\[IMAGE:([^\]]+)\]/g;
-  const imageMatches = [...blogContent.matchAll(imageRegex)];
+  const imageMatches = Array.from(blogContent.matchAll(imageRegex));
 
   // Prepare all image generation tasks
   const imagePromises: Promise<void>[] = [];
 
   // 1. Header image
   imagePromises.push(
-    generateAndSaveImage(metadata.imagePrompts.header, "header", imageDir)
+    generateAndSaveImage(metadata.imagePrompts.header, "header", imageDir),
   );
   console.log("  📸 Queued: header image");
 
   // 2. Content images
   const contentPrompts = metadata.imagePrompts.content.slice(
     0,
-    Math.min(imageMatches.length, 3)
+    Math.min(imageMatches.length, 3),
   );
   contentPrompts.forEach((prompt, index) => {
     const filename = `content-${index + 1}`;
@@ -463,7 +463,7 @@ export async function generateAllImages(
       const filename = `content-${index + 1}`;
       updatedContent = updatedContent.replace(
         match[0],
-        `![](/${blogType}/${slug}/${filename}.webp)`
+        `![](/${blogType}/${slug}/${filename}.webp)`,
       );
     }
   });
@@ -487,7 +487,7 @@ export function determineBlogSource(): "hn" | "devto" {
 }
 
 export async function fetchHNTrendingTopics(
-  keywords?: string[]
+  keywords?: string[],
 ): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching Hacker News trending topics...");
   if (keywords) {
@@ -504,13 +504,13 @@ export async function fetchHNTrendingTopics(
   ]);
 
   const ids = Array.from(
-    new Set([...newIds.slice(0, 150), ...bestIds.slice(0, 150)])
+    new Set([...newIds.slice(0, 150), ...bestIds.slice(0, 150)]),
   );
 
   const stories = await Promise.all(
     ids.map(async (id: number) => {
       const item = await fetch(`${HN_API}/item/${id}.json`).then((res) =>
-        res.json()
+        res.json(),
       );
       if (!item || !item.title || !item.time) return null;
 
@@ -529,7 +529,7 @@ export async function fetchHNTrendingTopics(
       if (keywords && keywords.length > 0) {
         const titleLower = item.title.toLowerCase();
         const matchesKeyword = keywords.some((kw) =>
-          titleLower.includes(kw.toLowerCase())
+          titleLower.includes(kw.toLowerCase()),
         );
         if (!matchesKeyword) return null;
       }
@@ -543,7 +543,7 @@ export async function fetchHNTrendingTopics(
         comments: item.descendants || 0,
         publishedAt,
       };
-    })
+    }),
   );
 
   const filtered = stories.filter(Boolean) as RawTopic[];
@@ -552,7 +552,7 @@ export async function fetchHNTrendingTopics(
 }
 
 export async function fetchDevToTrendingTopics(
-  keywords?: string[]
+  keywords?: string[],
 ): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching Dev.to trending articles...");
   if (keywords) {
@@ -595,7 +595,7 @@ export async function fetchDevToTrendingTopics(
         const matchesKeyword = keywords.some(
           (kw) =>
             titleLower.includes(kw.toLowerCase()) ||
-            descriptionLower.includes(kw.toLowerCase())
+            descriptionLower.includes(kw.toLowerCase()),
         );
         return matchesKeyword;
       }
@@ -617,7 +617,7 @@ export async function fetchDevToTrendingTopics(
 }
 
 export async function curateTrendingTopicsWithLLM(
-  rawTopics: RawTopic[]
+  rawTopics: RawTopic[],
 ): Promise<TrendingTopic[]> {
   console.log("\n🧠 Curating topics with LLM (dedupe + summary)...");
 
@@ -683,7 +683,7 @@ export async function fetchTrendingTopics2(): Promise<TrendingTopic[]> {
  * Returns top topics sorted by score + comments
  */
 export async function fetchHNTopicsOnly(
-  keywords?: string[]
+  keywords?: string[],
 ): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching HN topics only (no deduplication)...");
 
@@ -707,7 +707,7 @@ export async function fetchHNTopicsOnly(
  * Returns top topics sorted by score + comments
  */
 export async function fetchDevToTopicsOnly(
-  keywords?: string[]
+  keywords?: string[],
 ): Promise<RawTopic[]> {
   console.log("\n🔥 Fetching Dev.to topics only (no deduplication)...");
 

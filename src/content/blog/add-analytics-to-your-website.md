@@ -13,6 +13,7 @@ heroImage: /assets/insights-dashboard.webp
 Microsoft Clarity is a powerful tool that helps you understand how users interact with your website. It provides insights into user behavior, allowing you to identify areas for improvement and optimize your website's performance. And the best part? It's free!
 
 #### Why Add Microsoft Clarity to Your Next.js Website?
+
 As a Next.js developer, you're likely no stranger to the importance of website performance. With Microsoft Clarity, you can:
 
 - Identify performance bottlenecks and optimize your website's speed
@@ -24,7 +25,6 @@ As a Next.js developer, you're likely no stranger to the importance of website p
 - Get recordings of every visit and also summarise it with AI!
 
 Awesome innit?! So lets get started...
-
 
 ### 1. Create a free account
 
@@ -68,10 +68,9 @@ const Clarity = () => {
 };
 
 export default Clarity;
-
 ```
-Replace The CLARITY_ID, with your unique ID that will be given. You basically need to replace the script function they'll provide with the function here.
 
+Replace The CLARITY_ID, with your unique ID that will be given. You basically need to replace the script function they'll provide with the function here.
 
 ### 5. Import the `Clarity.tsx` component in `layout.tsx`
 
@@ -80,7 +79,9 @@ import Clarity from "@/components/Clarity";
 
 // now inside <html> but before the body tag, add this :
 
-{process.env.NODE_ENV === "production" ? <Clarity /> : null}
+{
+  process.env.NODE_ENV === "production" ? <Clarity /> : null;
+}
 ```
 
 #### **And That's It!**
