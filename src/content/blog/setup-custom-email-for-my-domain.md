@@ -69,7 +69,7 @@ No chaos. No conflict. No drama.
 
 Just clean, smart separation.
 
-![filteringspam](../../../public/assets/email2.jpeg)
+![zohomail](../../../public/assets/email1.webp)
 
 ## Why I Chose Zoho for My Main Email
 
@@ -182,7 +182,7 @@ Since I already had Zoho as my real inbox, ForwardEmail made zero sense for me.
 
 So I deleted those records and moved on with my life.
 
-![email1](../../../public/assets/email1.jpeg)
+![filtering](../../../public/assets/email2.jpeg)
 
 ## Testing Everything (The Moment of Truth)
 
@@ -237,5 +237,3 @@ When someone asks me my email, I proudly say:
 > “It’s [hello@anish7.me](mailto:hello@anish7.me).”
 
 That hits different.
-
----
