@@ -2,53 +2,69 @@
 🚀 Starting optimized blog generator...
 
 📰 Using source: DEVTO
-🔑 Selected keywords: Cloudflare Workers, Go, image optimization, Markdown, UI/UX
+🔑 Selected keywords: Figma, AWS, Redux, state management
 
 🔥 Fetching Dev.to topics only (no deduplication)...
 
 🔥 Fetching Dev.to trending articles...
-   Filtering by keywords: Cloudflare Workers, Go, image optimization, Markdown, UI/UX
-✅ Dev.to topics fetched: 6
-✅ Selected top 6 Dev.to topics
+   Filtering by keywords: Figma, AWS, Redux, state management
+✅ Dev.to topics fetched: 0
+✅ Selected top 0 Dev.to topics
 
-✅ Found 6 trending topics:
-   1. Bifrost: The fastest way to build AI applications that never go down (score: 127, comments: 7)
-   2. Join the Algolia Agent Studio Challenge: $3,000 in Prizes! (score: 92, comments: 11)
-   3. Do you have any New Year resolutions or goals? (score: 26, comments: 54)
-   4. Beyond the Linear CV (score: 27, comments: 18)
-   5. An Honest Review of Google Antigravity (score: 29, comments: 10)
-   6. Google's LEGO tribute 🧩 (score: 24, comments: 8)
+⚠️  No topics found with selected keywords, fetching without filters...
 
-🎯 Selected (best): "Bifrost: The fastest way to build AI applications that never go down" (score: 127, comments: 7)
+🔥 Fetching Dev.to topics only (no deduplication)...
+
+🔥 Fetching Dev.to trending articles...
+✅ Dev.to topics fetched: 21
+✅ Selected top 10 Dev.to topics
+
+✅ Found 10 trending topics:
+   1. The 'Senior Developer' is now the new 'Entry Level' (score: 220, comments: 124)
+   2. Welcome Thread - v360 (score: 28, comments: 196)
+   3. What was your win this week?? (score: 39, comments: 100)
+   4. Microservices Are Killing Your Performance (And Here's the Math) (score: 90, comments: 24)
+   5. Prompt Engineering Is a Symptom (And That’s Okay) (score: 87, comments: 24)
+   6. The Introvert’s Guide to Networking: How I Stopped Faking It and Started Growing (score: 95, comments: 10)
+   7. If ChatGPT Writes Your Code, What Are You Getting Paid For? (score: 69, comments: 25)
+   8. The Cloud Exit Strategy: How to Run a Production SaaS for $5/Month (score: 56, comments: 37)
+   9. My Chrome Tabs Tell a Story We Haven't Processed Yet (score: 37, comments: 51)
+   10. When DEV.to Stats Aren't Enough: Building My Own Memory (score: 46, comments: 28)
+
+🎯 Selected (best): "The 'Senior Developer' is now the new 'Entry Level'" (score: 220, comments: 124)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: Bifrost: The fastest way to build AI applications that never go down
+📝 Generating blog with gpt-oss-120b + browser_search: The 'Senior Developer' is now the new 'Entry Level'
 
 🌐 Researching with web_search...
-✅ Blog generated: 8061 characters (cleaned from 8061)
+⚠️  Web research unavailable; proceeding without it: Web research failed (429 Too Many Requests)
+Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ka0fb2dceadvjs1g8kp11x5z` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4280, Requested 4762. Please try again in 7.815s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing
+{"error":{"message":"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ka0fb2dceadvjs1g8kp11x5z` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4280, Requested 4762. Please try again in 7.815s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"compound","code":"rate_limit_exceeded"}}
+
+✅ Blog generated: 7606 characters (cleaned from 7606)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Bifrost: Ultra‑Fast, Zero‑Downtime AI Gateway for Multi‑LLM Apps
-   Title: Bifrost: Ultra‑Fast, Zero‑Downtime AI Gateway for Multi‑LLM Apps
-   Tags: ai-gateway, llm-integration, go-language, multi-cloud, devops
-   Slug: bifrost-ultra-fast-zero-downtime-ai-gateway-for-multi-llm-apps
+✅ Metadata generated: Senior Developers Replace Juniors: AI‑Driven Role Shift 2024
+   Title: Senior Developers Replace Juniors: AI‑Driven Role Shift 2024
+   Tags: ai-development, senior-developer, junior-role, tech-trends, software-engineering
+   Slug: senior-developers-replace-juniors-ai-driven-role-shift-2024
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
-  ✅ Converted content-1.webp (50KB)
   ✅ Converted header.webp (71KB)
-  ✅ Converted content-2.webp (72KB)
+  ✅ Converted content-1.webp (36KB)
+  ✅ Converted content-2.webp (37KB)
 ✅ Generated 3 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/bifrost-ultra-fast-zero-downtime-ai-gateway-for-multi-llm-apps.md
-   Length: 8650 characters
-   Title: Bifrost: Ultra‑Fast, Zero‑Downtime AI Gateway for Multi‑LLM Apps
-   Tags: ai-gateway, llm-integration, go-language, multi-cloud, devops
+   File: src/content/ai-blogs/senior-developers-replace-juniors-ai-driven-role-shift-2024.md
+   Length: 8173 characters
+   Title: Senior Developers Replace Juniors: AI‑Driven Role Shift 2024
+   Tags: ai-development, senior-developer, junior-role, tech-trends, software-engineering
    Source: devto
-   Images: public/ai-blogs/bifrost-ultra-fast-zero-downtime-ai-gateway-for-multi-llm-apps/
+   Images: public/ai-blogs/senior-developers-replace-juniors-ai-driven-role-shift-2024/
