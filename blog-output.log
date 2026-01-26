@@ -1,70 +1,68 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: DEVTO
-🔑 Selected keywords: Figma, AWS, Redux, state management
+📰 Using source: HN
+🔑 Selected keywords: authentication, CSS-in-JS, Drizzle, NestJS, PWA
 
-🔥 Fetching Dev.to topics only (no deduplication)...
+🔥 Fetching HN topics only (no deduplication)...
 
-🔥 Fetching Dev.to trending articles...
-   Filtering by keywords: Figma, AWS, Redux, state management
-✅ Dev.to topics fetched: 0
-✅ Selected top 0 Dev.to topics
+🔥 Fetching Hacker News trending topics...
+   Filtering by keywords: authentication, CSS-in-JS, Drizzle, NestJS, PWA
+✅ HN topics fetched: 0
+✅ Selected top 0 HN topics
 
 ⚠️  No topics found with selected keywords, fetching without filters...
 
-🔥 Fetching Dev.to topics only (no deduplication)...
+🔥 Fetching HN topics only (no deduplication)...
 
-🔥 Fetching Dev.to trending articles...
-✅ Dev.to topics fetched: 21
-✅ Selected top 10 Dev.to topics
+🔥 Fetching Hacker News trending topics...
+✅ HN topics fetched: 285
+✅ Selected top 10 HN topics
 
 ✅ Found 10 trending topics:
-   1. The 'Senior Developer' is now the new 'Entry Level' (score: 220, comments: 124)
-   2. Welcome Thread - v360 (score: 28, comments: 196)
-   3. What was your win this week?? (score: 39, comments: 100)
-   4. Microservices Are Killing Your Performance (And Here's the Math) (score: 90, comments: 24)
-   5. Prompt Engineering Is a Symptom (And That’s Okay) (score: 87, comments: 24)
-   6. The Introvert’s Guide to Networking: How I Stopped Faking It and Started Growing (score: 95, comments: 10)
-   7. If ChatGPT Writes Your Code, What Are You Getting Paid For? (score: 69, comments: 25)
-   8. The Cloud Exit Strategy: How to Run a Production SaaS for $5/Month (score: 56, comments: 37)
-   9. My Chrome Tabs Tell a Story We Haven't Processed Yet (score: 37, comments: 51)
-   10. When DEV.to Stats Aren't Enough: Building My Own Memory (score: 46, comments: 28)
+   1. ICE using Palantir tool that feeds on Medicaid data (score: 1204, comments: 703)
+   2. Man shot and killed by federal agents in south Minneapolis this morning (score: 688, comments: 724)
+   3. BirdyChat becomes first European chat app that is interoperable with WhatsApp (score: 711, comments: 480)
+   4. Adoption of EVs tied to real-world reductions in air pollution: study (score: 579, comments: 602)
+   5. A flawed paper in management science has been cited more than 6k times (score: 672, comments: 345)
+   6. Deutsche Telekom is throttling the internet (score: 598, comments: 293)
+   7. Microsoft will give the FBI a Windows PC data encryption key if ordered (score: 529, comments: 323)
+   8. Claude Code's new hidden feature: Swarms (score: 507, comments: 331)
+   9. How I estimate work (score: 523, comments: 306)
+   10. A macOS app that blurs your screen when you slouch (score: 589, comments: 189)
 
-🎯 Selected (best): "The 'Senior Developer' is now the new 'Entry Level'" (score: 220, comments: 124)
+🎯 Selected (best): "ICE using Palantir tool that feeds on Medicaid data" (score: 1204, comments: 703)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: The 'Senior Developer' is now the new 'Entry Level'
+📝 Generating blog with gpt-oss-120b + browser_search: ICE using Palantir tool that feeds on Medicaid data
 
 🌐 Researching with web_search...
-⚠️  Web research unavailable; proceeding without it: Web research failed (429 Too Many Requests)
-Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ka0fb2dceadvjs1g8kp11x5z` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4280, Requested 4762. Please try again in 7.815s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing
-{"error":{"message":"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01ka0fb2dceadvjs1g8kp11x5z` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4280, Requested 4762. Please try again in 7.815s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"compound","code":"rate_limit_exceeded"}}
-
-✅ Blog generated: 7606 characters (cleaned from 7606)
+✅ Blog generated: 8612 characters (cleaned from 8612)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Senior Developers Replace Juniors: AI‑Driven Role Shift 2024
-   Title: Senior Developers Replace Juniors: AI‑Driven Role Shift 2024
-   Tags: ai-development, senior-developer, junior-role, tech-trends, software-engineering
-   Slug: senior-developers-replace-juniors-ai-driven-role-shift-2024
+✅ Metadata generated: ICE's Palantir ELITE: Medicaid Data Turned Deportation Radar
+   Title: ICE's Palantir ELITE: Medicaid Data Turned Deportation Radar
+   Tags: ice, palantir, medicaid-data, immigration-enforcement, privacy
+   Slug: ice-s-palantir-elite-medicaid-data-turned-deportation-radar
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
-  ✅ Converted header.webp (71KB)
-  ✅ Converted content-1.webp (36KB)
-  ✅ Converted content-2.webp (37KB)
-✅ Generated 3 images
+  📸 Queued: content-3
+  ✅ Converted content-2.webp (22KB)
+  ✅ Converted header.webp (87KB)
+  ✅ Converted content-3.webp (49KB)
+  ✅ Converted content-1.webp (43KB)
+✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/senior-developers-replace-juniors-ai-driven-role-shift-2024.md
-   Length: 8173 characters
-   Title: Senior Developers Replace Juniors: AI‑Driven Role Shift 2024
-   Tags: ai-development, senior-developer, junior-role, tech-trends, software-engineering
-   Source: devto
-   Images: public/ai-blogs/senior-developers-replace-juniors-ai-driven-role-shift-2024/
+   File: src/content/ai-blogs/ice-s-palantir-elite-medicaid-data-turned-deportation-radar.md
+   Length: 9163 characters
+   Title: ICE's Palantir ELITE: Medicaid Data Turned Deportation Radar
+   Tags: ice, palantir, medicaid-data, immigration-enforcement, privacy
+   Source: hn
+   Images: public/ai-blogs/ice-s-palantir-elite-medicaid-data-turned-deportation-radar/
