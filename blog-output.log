@@ -2,12 +2,12 @@
 🚀 Starting optimized blog generator...
 
 📰 Using source: HN
-🔑 Selected keywords: authentication, CSS-in-JS, Drizzle, NestJS, PWA
+🔑 Selected keywords: blockchain, WebSockets, Capacitor, unit testing
 
 🔥 Fetching HN topics only (no deduplication)...
 
 🔥 Fetching Hacker News trending topics...
-   Filtering by keywords: authentication, CSS-in-JS, Drizzle, NestJS, PWA
+   Filtering by keywords: blockchain, WebSockets, Capacitor, unit testing
 ✅ HN topics fetched: 0
 ✅ Selected top 0 HN topics
 
@@ -16,53 +16,51 @@
 🔥 Fetching HN topics only (no deduplication)...
 
 🔥 Fetching Hacker News trending topics...
-✅ HN topics fetched: 285
+✅ HN topics fetched: 292
 ✅ Selected top 10 HN topics
 
 ✅ Found 10 trending topics:
-   1. ICE using Palantir tool that feeds on Medicaid data (score: 1204, comments: 703)
-   2. Man shot and killed by federal agents in south Minneapolis this morning (score: 688, comments: 724)
-   3. BirdyChat becomes first European chat app that is interoperable with WhatsApp (score: 711, comments: 480)
-   4. Adoption of EVs tied to real-world reductions in air pollution: study (score: 579, comments: 602)
-   5. A flawed paper in management science has been cited more than 6k times (score: 672, comments: 345)
-   6. Deutsche Telekom is throttling the internet (score: 598, comments: 293)
-   7. Microsoft will give the FBI a Windows PC data encryption key if ordered (score: 529, comments: 323)
-   8. Claude Code's new hidden feature: Swarms (score: 507, comments: 331)
-   9. How I estimate work (score: 523, comments: 306)
-   10. A macOS app that blurs your screen when you slouch (score: 589, comments: 189)
+   1. Claude Opus 4.6 (score: 1950, comments: 824)
+   2. GPT-5.3-Codex (score: 1300, comments: 482)
+   3. Don't rent the cloud, own instead (score: 1144, comments: 471)
+   4. Voxtral Transcribe 2 (score: 990, comments: 238)
+   5. AI is killing B2B SaaS (score: 492, comments: 722)
+   6. FBI couldn't get into WaPo reporter's iPhone because Lockdown Mode enabled (score: 596, comments: 524)
+   7. Flock CEO calls Deflock a “terrorist organization” (2025) [video] (score: 612, comments: 421)
+   8. We tasked Opus 4.6 using agent teams to build a C Compiler (score: 531, comments: 496)
+   9. OpenClaw is what Apple intelligence should have been (score: 501, comments: 405)
+   10. My AI Adoption Journey (score: 586, comments: 197)
 
-🎯 Selected (best): "ICE using Palantir tool that feeds on Medicaid data" (score: 1204, comments: 703)
+🎯 Selected (best): "Claude Opus 4.6" (score: 1950, comments: 824)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: ICE using Palantir tool that feeds on Medicaid data
+📝 Generating blog with gpt-oss-120b + browser_search: Claude Opus 4.6
 
 🌐 Researching with web_search...
-✅ Blog generated: 8612 characters (cleaned from 8612)
+✅ Blog generated: 7393 characters (cleaned from 7393)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: ICE's Palantir ELITE: Medicaid Data Turned Deportation Radar
-   Title: ICE's Palantir ELITE: Medicaid Data Turned Deportation Radar
-   Tags: ice, palantir, medicaid-data, immigration-enforcement, privacy
-   Slug: ice-s-palantir-elite-medicaid-data-turned-deportation-radar
+✅ Metadata generated: Claude Opus 4.6: 1M‑Token LLM Becomes Real‑World AI Co‑Pilot
+   Title: Claude Opus 4.6: 1M‑Token LLM Becomes Real‑World AI Co‑Pilot
+   Tags: claude-opus, large-language-model, ai-co-pilot, productivity-tools, agentic-coding
+   Slug: claude-opus-4-6-1m-token-llm-becomes-real-world-ai-co-pilot
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
-  📸 Queued: content-3
-  ✅ Converted content-2.webp (22KB)
-  ✅ Converted header.webp (87KB)
-  ✅ Converted content-3.webp (49KB)
-  ✅ Converted content-1.webp (43KB)
-✅ Generated 4 images
+  ✅ Converted content-2.webp (84KB)
+  ✅ Converted content-1.webp (46KB)
+  ✅ Converted header.webp (82KB)
+✅ Generated 3 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/ice-s-palantir-elite-medicaid-data-turned-deportation-radar.md
-   Length: 9163 characters
-   Title: ICE's Palantir ELITE: Medicaid Data Turned Deportation Radar
-   Tags: ice, palantir, medicaid-data, immigration-enforcement, privacy
+   File: src/content/ai-blogs/claude-opus-4-6-1m-token-llm-becomes-real-world-ai-co-pilot.md
+   Length: 8016 characters
+   Title: Claude Opus 4.6: 1M‑Token LLM Becomes Real‑World AI Co‑Pilot
+   Tags: claude-opus, large-language-model, ai-co-pilot, productivity-tools, agentic-coding
    Source: hn
-   Images: public/ai-blogs/ice-s-palantir-elite-medicaid-data-turned-deportation-radar/
+   Images: public/ai-blogs/claude-opus-4-6-1m-token-llm-becomes-real-world-ai-co-pilot/
