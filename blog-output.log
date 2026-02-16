@@ -2,65 +2,54 @@
 🚀 Starting optimized blog generator...
 
 📰 Using source: HN
-🔑 Selected keywords: blockchain, WebSockets, Capacitor, unit testing
+🔑 Selected keywords: Rust, E2E testing, MongoDB
 
 🔥 Fetching HN topics only (no deduplication)...
 
 🔥 Fetching Hacker News trending topics...
-   Filtering by keywords: blockchain, WebSockets, Capacitor, unit testing
-✅ HN topics fetched: 0
-✅ Selected top 0 HN topics
+   Filtering by keywords: Rust, E2E testing, MongoDB
+✅ HN topics fetched: 5
+✅ Selected top 5 HN topics
 
-⚠️  No topics found with selected keywords, fetching without filters...
+✅ Found 5 trending topics:
+   1. You can't trust the internet anymore (score: 226, comments: 179)
+   2. Show HN: Perlin Noise Terminal Animation in Rust (60 FPS, Truecolor) (score: 17, comments: 10)
+   3. Arborium is AI slopware and should not be trusted (score: 14, comments: 3)
+   4. OpenClaw Partners with VirusTotal for Skill Security (score: 1, comments: 0)
+   5. Show HN: FluxDown – Free download manager built with Rust and Flutter (score: 1, comments: 0)
 
-🔥 Fetching HN topics only (no deduplication)...
-
-🔥 Fetching Hacker News trending topics...
-✅ HN topics fetched: 292
-✅ Selected top 10 HN topics
-
-✅ Found 10 trending topics:
-   1. Claude Opus 4.6 (score: 1950, comments: 824)
-   2. GPT-5.3-Codex (score: 1300, comments: 482)
-   3. Don't rent the cloud, own instead (score: 1144, comments: 471)
-   4. Voxtral Transcribe 2 (score: 990, comments: 238)
-   5. AI is killing B2B SaaS (score: 492, comments: 722)
-   6. FBI couldn't get into WaPo reporter's iPhone because Lockdown Mode enabled (score: 596, comments: 524)
-   7. Flock CEO calls Deflock a “terrorist organization” (2025) [video] (score: 612, comments: 421)
-   8. We tasked Opus 4.6 using agent teams to build a C Compiler (score: 531, comments: 496)
-   9. OpenClaw is what Apple intelligence should have been (score: 501, comments: 405)
-   10. My AI Adoption Journey (score: 586, comments: 197)
-
-🎯 Selected (best): "Claude Opus 4.6" (score: 1950, comments: 824)
+🎯 Selected (best): "You can't trust the internet anymore" (score: 226, comments: 179)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: Claude Opus 4.6
+📝 Generating blog with gpt-oss-120b + browser_search: You can't trust the internet anymore
 
 🌐 Researching with web_search...
-✅ Blog generated: 7393 characters (cleaned from 7393)
+✅ Blog generated: 7568 characters (cleaned from 7568)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Claude Opus 4.6: 1M‑Token LLM Becomes Real‑World AI Co‑Pilot
-   Title: Claude Opus 4.6: 1M‑Token LLM Becomes Real‑World AI Co‑Pilot
-   Tags: claude-opus, large-language-model, ai-co-pilot, productivity-tools, agentic-coding
-   Slug: claude-opus-4-6-1m-token-llm-becomes-real-world-ai-co-pilot
+✅ Metadata generated: Spot Misinformation Online: Protect Your Brand in the Age of AI
+   Title: Spot Misinformation Online: Protect Your Brand in the Age of AI
+   Tags: misinformation, brand-protection, ai-hallucinations, digital-trust, seo
+   Slug: spot-misinformation-online-protect-your-brand-in-the-age-of-ai
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
-  ✅ Converted content-2.webp (84KB)
-  ✅ Converted content-1.webp (46KB)
-  ✅ Converted header.webp (82KB)
-✅ Generated 3 images
+  📸 Queued: content-3
+  ✅ Converted content-3.webp (46KB)
+  ✅ Converted content-1.webp (58KB)
+  ✅ Converted content-2.webp (54KB)
+  ✅ Converted header.webp (104KB)
+✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/claude-opus-4-6-1m-token-llm-becomes-real-world-ai-co-pilot.md
-   Length: 8016 characters
-   Title: Claude Opus 4.6: 1M‑Token LLM Becomes Real‑World AI Co‑Pilot
-   Tags: claude-opus, large-language-model, ai-co-pilot, productivity-tools, agentic-coding
+   File: src/content/ai-blogs/spot-misinformation-online-protect-your-brand-in-the-age-of-ai.md
+   Length: 8260 characters
+   Title: Spot Misinformation Online: Protect Your Brand in the Age of AI
+   Tags: misinformation, brand-protection, ai-hallucinations, digital-trust, seo
    Source: hn
-   Images: public/ai-blogs/claude-opus-4-6-1m-token-llm-becomes-real-world-ai-co-pilot/
+   Images: public/ai-blogs/spot-misinformation-online-protect-your-brand-in-the-age-of-ai/
