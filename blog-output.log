@@ -1,55 +1,68 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: HN
-🔑 Selected keywords: Rust, E2E testing, MongoDB
+📰 Using source: DEVTO
+🔑 Selected keywords: LLM, Framer Motion, MongoDB, MySQL, Sanity
 
-🔥 Fetching HN topics only (no deduplication)...
+🔥 Fetching Dev.to topics only (no deduplication)...
 
-🔥 Fetching Hacker News trending topics...
-   Filtering by keywords: Rust, E2E testing, MongoDB
-✅ HN topics fetched: 5
-✅ Selected top 5 HN topics
+🔥 Fetching Dev.to trending articles...
+   Filtering by keywords: LLM, Framer Motion, MongoDB, MySQL, Sanity
+✅ Dev.to topics fetched: 0
+✅ Selected top 0 Dev.to topics
 
-✅ Found 5 trending topics:
-   1. You can't trust the internet anymore (score: 226, comments: 179)
-   2. Show HN: Perlin Noise Terminal Animation in Rust (60 FPS, Truecolor) (score: 17, comments: 10)
-   3. Arborium is AI slopware and should not be trusted (score: 14, comments: 3)
-   4. OpenClaw Partners with VirusTotal for Skill Security (score: 1, comments: 0)
-   5. Show HN: FluxDown – Free download manager built with Rust and Flutter (score: 1, comments: 0)
+⚠️  No topics found with selected keywords, fetching without filters...
 
-🎯 Selected (best): "You can't trust the internet anymore" (score: 226, comments: 179)
+🔥 Fetching Dev.to topics only (no deduplication)...
+
+🔥 Fetching Dev.to trending articles...
+✅ Dev.to topics fetched: 22
+✅ Selected top 10 Dev.to topics
+
+✅ Found 10 trending topics:
+   1. A New Chapter: DEV is Joining Forces with Major League Hacking (MLH) (score: 343, comments: 86)
+   2. The Gatekeeping Panic: What AI Actually Threatens in Software Development (score: 109, comments: 115)
+   3. Web Development Is More Than Frontend and Backend (Here’s What Actually Matters) (score: 152, comments: 47)
+   4. The most valuable skill in 2026 isn't writing code. It is deleting it. (score: 94, comments: 95)
+   5. If You See These Red Flags in an IT Interview — Run (Real Stories) (score: 99, comments: 71)
+   6. How a DEV Friend and I Brought Two Avatars to Life (score: 86, comments: 61)
+   7. Suffering from BUGS: How I Almost Deleted My Entire Project (score: 83, comments: 31)
+   8. The Future of Software Has a Lot More Builders. They’re Going to Need a Home. (score: 88, comments: 16)
+   9. Congrats to the "New Year, New You" Portfolio Challenge Winners and Runner-Ups! (score: 74, comments: 30)
+   10. Introducing Our Next DEV Education Track: "Build Multi-Agent Systems with ADK" (score: 91, comments: 10)
+
+🎯 Selected (best): "A New Chapter: DEV is Joining Forces with Major League Hacking (MLH)" (score: 343, comments: 86)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: You can't trust the internet anymore
+📝 Generating blog with gpt-oss-120b + browser_search: A New Chapter: DEV is Joining Forces with Major League Hacking (MLH)
 
 🌐 Researching with web_search...
-✅ Blog generated: 7568 characters (cleaned from 7568)
+✅ Blog generated: 8094 characters (cleaned from 8094)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Spot Misinformation Online: Protect Your Brand in the Age of AI
-   Title: Spot Misinformation Online: Protect Your Brand in the Age of AI
-   Tags: misinformation, brand-protection, ai-hallucinations, digital-trust, seo
-   Slug: spot-misinformation-online-protect-your-brand-in-the-age-of-ai
+✅ Metadata generated: DEV Joins Major League Hacking: A Game‑Changing Merge for Devs
+   Title: DEV Joins Major League Hacking: A Game‑Changing Merge for Devs
+   Tags: dev-community, major-league-hacking, hackathon, open-source, developer-ecosystem
+   Slug: dev-joins-major-league-hacking-a-game-changing-merge-for-devs
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
   📸 Queued: content-3
-  ✅ Converted content-3.webp (46KB)
-  ✅ Converted content-1.webp (58KB)
-  ✅ Converted content-2.webp (54KB)
-  ✅ Converted header.webp (104KB)
+  ✅ Converted content-3.webp (48KB)
+  ✅ Converted content-2.webp (83KB)
+  ✅ Converted header.webp (63KB)
+  ✅ Converted content-1.webp (56KB)
 ✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/spot-misinformation-online-protect-your-brand-in-the-age-of-ai.md
-   Length: 8260 characters
-   Title: Spot Misinformation Online: Protect Your Brand in the Age of AI
-   Tags: misinformation, brand-protection, ai-hallucinations, digital-trust, seo
-   Source: hn
-   Images: public/ai-blogs/spot-misinformation-online-protect-your-brand-in-the-age-of-ai/
+   File: src/content/ai-blogs/dev-joins-major-league-hacking-a-game-changing-merge-for-devs.md
+   Length: 8744 characters
+   Title: DEV Joins Major League Hacking: A Game‑Changing Merge for Devs
+   Tags: dev-community, major-league-hacking, hackathon, open-source, developer-ecosystem
+   Source: devto
+   Images: public/ai-blogs/dev-joins-major-league-hacking-a-game-changing-merge-for-devs/
