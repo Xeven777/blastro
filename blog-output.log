@@ -1,68 +1,56 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: DEVTO
-🔑 Selected keywords: LLM, Framer Motion, MongoDB, MySQL, Sanity
+📰 Using source: HN
+🔑 Selected keywords: monitoring, Markdown, ChatGPT
 
-🔥 Fetching Dev.to topics only (no deduplication)...
+🔥 Fetching HN topics only (no deduplication)...
 
-🔥 Fetching Dev.to trending articles...
-   Filtering by keywords: LLM, Framer Motion, MongoDB, MySQL, Sanity
-✅ Dev.to topics fetched: 0
-✅ Selected top 0 Dev.to topics
+🔥 Fetching Hacker News trending topics...
+   Filtering by keywords: monitoring, Markdown, ChatGPT
+✅ HN topics fetched: 6
+✅ Selected top 6 HN topics
 
-⚠️  No topics found with selected keywords, fetching without filters...
+✅ Found 6 trending topics:
+   1. Windows 11 Notepad to support Markdown (score: 279, comments: 421)
+   2. Mq – a command-line tool that processes Markdown using a syntax similar to jq (score: 2, comments: 0)
+   3. AIQuotaBar – macOS menu bar app that shows Claude and ChatGPT usage limits (score: 1, comments: 1)
+   4. Show HN: PsiGuard – real-time hallucination monitoring for LLM apps (score: 1, comments: 0)
+   5. Why Your Brand Doesn't Appear in ChatGPT (score: 1, comments: 0)
+   6. Show HN: Secure Extension: Chat with ChatGPT and Other LLMs Simultaneously (score: 1, comments: 0)
 
-🔥 Fetching Dev.to topics only (no deduplication)...
-
-🔥 Fetching Dev.to trending articles...
-✅ Dev.to topics fetched: 22
-✅ Selected top 10 Dev.to topics
-
-✅ Found 10 trending topics:
-   1. A New Chapter: DEV is Joining Forces with Major League Hacking (MLH) (score: 343, comments: 86)
-   2. The Gatekeeping Panic: What AI Actually Threatens in Software Development (score: 109, comments: 115)
-   3. Web Development Is More Than Frontend and Backend (Here’s What Actually Matters) (score: 152, comments: 47)
-   4. The most valuable skill in 2026 isn't writing code. It is deleting it. (score: 94, comments: 95)
-   5. If You See These Red Flags in an IT Interview — Run (Real Stories) (score: 99, comments: 71)
-   6. How a DEV Friend and I Brought Two Avatars to Life (score: 86, comments: 61)
-   7. Suffering from BUGS: How I Almost Deleted My Entire Project (score: 83, comments: 31)
-   8. The Future of Software Has a Lot More Builders. They’re Going to Need a Home. (score: 88, comments: 16)
-   9. Congrats to the "New Year, New You" Portfolio Challenge Winners and Runner-Ups! (score: 74, comments: 30)
-   10. Introducing Our Next DEV Education Track: "Build Multi-Agent Systems with ADK" (score: 91, comments: 10)
-
-🎯 Selected (best): "A New Chapter: DEV is Joining Forces with Major League Hacking (MLH)" (score: 343, comments: 86)
+🎯 Selected (best): "Windows 11 Notepad to support Markdown" (score: 279, comments: 421)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: A New Chapter: DEV is Joining Forces with Major League Hacking (MLH)
+📝 Generating blog with gpt-oss-120b + browser_search: Windows 11 Notepad to support Markdown
 
 🌐 Researching with web_search...
-✅ Blog generated: 8094 characters (cleaned from 8094)
+✅ Blog generated: 7633 characters (cleaned from 7633)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: DEV Joins Major League Hacking: A Game‑Changing Merge for Devs
-   Title: DEV Joins Major League Hacking: A Game‑Changing Merge for Devs
-   Tags: dev-community, major-league-hacking, hackathon, open-source, developer-ecosystem
-   Slug: dev-joins-major-league-hacking-a-game-changing-merge-for-devs
+✅ Metadata generated: Windows 11 Notepad Gains Live Markdown Editing – Boost Your Docs
+   Title: Windows 11 Notepad Gains Live Markdown Editing – Boost Your Docs
+   Tags: windows-11, notepad, markdown, developer-tools, documentation
+   Slug: windows-11-notepad-gains-live-markdown-editing-boost-your-docs
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
   📸 Queued: content-3
-  ✅ Converted content-3.webp (48KB)
-  ✅ Converted content-2.webp (83KB)
-  ✅ Converted header.webp (63KB)
-  ✅ Converted content-1.webp (56KB)
+  ✅ Converted header.webp (54KB)
+  ✅ Converted content-1.webp (31KB)
+  ✅ Converted content-3.webp (30KB)
+  ✅ Converted content-2.webp (30KB)
 ✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/dev-joins-major-league-hacking-a-game-changing-merge-for-devs.md
-   Length: 8744 characters
-   Title: DEV Joins Major League Hacking: A Game‑Changing Merge for Devs
-   Tags: dev-community, major-league-hacking, hackathon, open-source, developer-ecosystem
-   Source: devto
-   Images: public/ai-blogs/dev-joins-major-league-hacking-a-game-changing-merge-for-devs/
+   File: src/content/ai-blogs/windows-11-notepad-gains-live-markdown-editing-boost-your-docs.md
+   Length: 8386 characters
+   Title: Windows 11 Notepad Gains Live Markdown Editing – Boost Your Docs
+   Tags: windows-11, notepad, markdown, developer-tools, documentation
+   Source: hn
+   Images: public/ai-blogs/windows-11-notepad-gains-live-markdown-editing-boost-your-docs/
