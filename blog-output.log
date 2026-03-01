@@ -1,56 +1,68 @@
 
 🚀 Starting optimized blog generator...
 
-📰 Using source: HN
-🔑 Selected keywords: monitoring, Markdown, ChatGPT
+📰 Using source: DEVTO
+🔑 Selected keywords: SWC, Vue, Firebase, WebSockets, vector database
 
-🔥 Fetching HN topics only (no deduplication)...
+🔥 Fetching Dev.to topics only (no deduplication)...
 
-🔥 Fetching Hacker News trending topics...
-   Filtering by keywords: monitoring, Markdown, ChatGPT
-✅ HN topics fetched: 6
-✅ Selected top 6 HN topics
+🔥 Fetching Dev.to trending articles...
+   Filtering by keywords: SWC, Vue, Firebase, WebSockets, vector database
+✅ Dev.to topics fetched: 0
+✅ Selected top 0 Dev.to topics
 
-✅ Found 6 trending topics:
-   1. Windows 11 Notepad to support Markdown (score: 279, comments: 421)
-   2. Mq – a command-line tool that processes Markdown using a syntax similar to jq (score: 2, comments: 0)
-   3. AIQuotaBar – macOS menu bar app that shows Claude and ChatGPT usage limits (score: 1, comments: 1)
-   4. Show HN: PsiGuard – real-time hallucination monitoring for LLM apps (score: 1, comments: 0)
-   5. Why Your Brand Doesn't Appear in ChatGPT (score: 1, comments: 0)
-   6. Show HN: Secure Extension: Chat with ChatGPT and Other LLMs Simultaneously (score: 1, comments: 0)
+⚠️  No topics found with selected keywords, fetching without filters...
 
-🎯 Selected (best): "Windows 11 Notepad to support Markdown" (score: 279, comments: 421)
+🔥 Fetching Dev.to topics only (no deduplication)...
+
+🔥 Fetching Dev.to trending articles...
+✅ Dev.to topics fetched: 28
+✅ Selected top 10 Dev.to topics
+
+✅ Found 10 trending topics:
+   1. The $0 Developer Phase — And How Dev.to Pulled Me Out (score: 182, comments: 102)
+   2. 16 Modern JavaScript Features That Might Blow Your Mind (score: 187, comments: 92)
+   3. Welcome Thread - v366 (score: 36, comments: 167)
+   4. Happening Now: DEV Weekend Challenge!! Submissions due March 2 at 7:59am UTC. (score: 162, comments: 32)
+   5. Join the "Built with Google Gemini: Writing Challenge" Presented by Major League Hacking (MLH). Win a Raspberry Pi AI Kit! (score: 115, comments: 37)
+   6. Once Upon a Time, Writing Code Was Fun (score: 110, comments: 41)
+   7. I Left My First Hackathon at 8 PM — And it Was a Massive Success! (score: 102, comments: 12)
+   8. A Quick Recovery Guide for AI-Dependent Coders (score: 80, comments: 33)
+   9. I Let AI Rewrite 40% of My Codebase. Here’s What Actually Happened. (score: 90, comments: 12)
+   10. I Let an AI Agent Become My DevOps Engineer (score: 63, comments: 38)
+
+🎯 Selected (best): "16 Modern JavaScript Features That Might Blow Your Mind" (score: 187, comments: 92)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: Windows 11 Notepad to support Markdown
+📝 Generating blog with gpt-oss-120b + browser_search: 16 Modern JavaScript Features That Might Blow Your Mind
 
 🌐 Researching with web_search...
-✅ Blog generated: 7633 characters (cleaned from 7633)
+✅ Blog generated: 8250 characters (cleaned from 8250)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: Windows 11 Notepad Gains Live Markdown Editing – Boost Your Docs
-   Title: Windows 11 Notepad Gains Live Markdown Editing – Boost Your Docs
-   Tags: windows-11, notepad, markdown, developer-tools, documentation
-   Slug: windows-11-notepad-gains-live-markdown-editing-boost-your-docs
+✅ Metadata generated: 16 Mind-Blowing Modern JavaScript Features You Must Know
+   Title: 16 Mind-Blowing Modern JavaScript Features You Must Know
+   Tags: javascript, es2022, web-development, frontend, nodejs
+   Slug: 16-mind-blowing-modern-javascript-features-you-must-know
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
   📸 Queued: content-3
-  ✅ Converted header.webp (54KB)
-  ✅ Converted content-1.webp (31KB)
-  ✅ Converted content-3.webp (30KB)
-  ✅ Converted content-2.webp (30KB)
+  ✅ Converted content-1.webp (35KB)
+  ✅ Converted header.webp (65KB)
+  ✅ Converted content-3.webp (102KB)
+  ✅ Converted content-2.webp (31KB)
 ✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/windows-11-notepad-gains-live-markdown-editing-boost-your-docs.md
-   Length: 8386 characters
-   Title: Windows 11 Notepad Gains Live Markdown Editing – Boost Your Docs
-   Tags: windows-11, notepad, markdown, developer-tools, documentation
-   Source: hn
-   Images: public/ai-blogs/windows-11-notepad-gains-live-markdown-editing-boost-your-docs/
+   File: src/content/ai-blogs/16-mind-blowing-modern-javascript-features-you-must-know.md
+   Length: 8930 characters
+   Title: 16 Mind-Blowing Modern JavaScript Features You Must Know
+   Tags: javascript, es2022, web-development, frontend, nodejs
+   Source: devto
+   Images: public/ai-blogs/16-mind-blowing-modern-javascript-features-you-must-know/
