@@ -2,12 +2,12 @@
 🚀 Starting optimized blog generator...
 
 📰 Using source: DEVTO
-🔑 Selected keywords: SWC, Vue, Firebase, WebSockets, vector database
+🔑 Selected keywords: REST API, tRPC, React Native, responsive design, IoT
 
 🔥 Fetching Dev.to topics only (no deduplication)...
 
 🔥 Fetching Dev.to trending articles...
-   Filtering by keywords: SWC, Vue, Firebase, WebSockets, vector database
+   Filtering by keywords: REST API, tRPC, React Native, responsive design, IoT
 ✅ Dev.to topics fetched: 0
 ✅ Selected top 0 Dev.to topics
 
@@ -20,49 +20,49 @@
 ✅ Selected top 10 Dev.to topics
 
 ✅ Found 10 trending topics:
-   1. The $0 Developer Phase — And How Dev.to Pulled Me Out (score: 182, comments: 102)
-   2. 16 Modern JavaScript Features That Might Blow Your Mind (score: 187, comments: 92)
-   3. Welcome Thread - v366 (score: 36, comments: 167)
-   4. Happening Now: DEV Weekend Challenge!! Submissions due March 2 at 7:59am UTC. (score: 162, comments: 32)
-   5. Join the "Built with Google Gemini: Writing Challenge" Presented by Major League Hacking (MLH). Win a Raspberry Pi AI Kit! (score: 115, comments: 37)
-   6. Once Upon a Time, Writing Code Was Fun (score: 110, comments: 41)
-   7. I Left My First Hackathon at 8 PM — And it Was a Massive Success! (score: 102, comments: 12)
-   8. A Quick Recovery Guide for AI-Dependent Coders (score: 80, comments: 33)
-   9. I Let AI Rewrite 40% of My Codebase. Here’s What Actually Happened. (score: 90, comments: 12)
-   10. I Let an AI Agent Become My DevOps Engineer (score: 63, comments: 38)
+   1. The Real Skill in Programming Is Debugging. Everything Else Is Copy-Paste (score: 224, comments: 127)
+   2. What was your win this week? (score: 69, comments: 113)
+   3. Congrats to the GitHub Copilot CLI Challenge Winners! (score: 120, comments: 52)
+   4. Join the 2026 WeCoded Challenge and Celebrate Underrepresented Voices in Tech Through Writing & Frontend Art 🎨! (score: 132, comments: 16)
+   5. The Secret Life of Claude Code: Skill Is Not What You Think It Is (score: 76, comments: 36)
+   6. 3 words worth a billion dollars: Drift to Determinism (DriDe) (score: 58, comments: 31)
+   7. How My "Illegal" Visit to Tech Show London Turned Into a Summer Internship Win (score: 65, comments: 24)
+   8. Share, Embed, and Curate Agent Sessions on DEV [Beta] (score: 67, comments: 20)
+   9. Not Everyone Gets to Be a Beginner in Tech (score: 54, comments: 32)
+   10. What’s the Worst Advice AI Has Given You? Here’s Mine. (score: 44, comments: 34)
 
-🎯 Selected (best): "16 Modern JavaScript Features That Might Blow Your Mind" (score: 187, comments: 92)
+🎯 Selected (best): "The Real Skill in Programming Is Debugging. Everything Else Is Copy-Paste" (score: 224, comments: 127)
 
 📝 Generating blog content with gpt-oss-120b...
 
-📝 Generating blog with gpt-oss-120b + browser_search: 16 Modern JavaScript Features That Might Blow Your Mind
+📝 Generating blog with gpt-oss-120b + browser_search: The Real Skill in Programming Is Debugging. Everything Else Is Copy-Paste
 
 🌐 Researching with web_search...
-✅ Blog generated: 8250 characters (cleaned from 8250)
+✅ Blog generated: 7887 characters (cleaned from 7887)
 
 🏷️  Generating optimized metadata...
 
 🏷️  Generating metadata...
-✅ Metadata generated: 16 Mind-Blowing Modern JavaScript Features You Must Know
-   Title: 16 Mind-Blowing Modern JavaScript Features You Must Know
-   Tags: javascript, es2022, web-development, frontend, nodejs
-   Slug: 16-mind-blowing-modern-javascript-features-you-must-know
+✅ Metadata generated: Debugging Mastery: The Real Programming Skill in an AI Era
+   Title: Debugging Mastery: The Real Programming Skill in an AI Era
+   Tags: debugging, software-development, ai-tools, copy-paste, programming-skills
+   Slug: debugging-mastery-the-real-programming-skill-in-an-ai-era
 
 🖼️  Generating images in parallel...
   📸 Queued: header image
   📸 Queued: content-1
   📸 Queued: content-2
   📸 Queued: content-3
-  ✅ Converted content-1.webp (35KB)
-  ✅ Converted header.webp (65KB)
-  ✅ Converted content-3.webp (102KB)
-  ✅ Converted content-2.webp (31KB)
+  ✅ Converted content-1.webp (58KB)
+  ✅ Converted content-2.webp (55KB)
+  ✅ Converted header.webp (60KB)
+  ✅ Converted content-3.webp (70KB)
 ✅ Generated 4 images
 
 ✅ Blog generated successfully!
-   File: src/content/ai-blogs/16-mind-blowing-modern-javascript-features-you-must-know.md
-   Length: 8930 characters
-   Title: 16 Mind-Blowing Modern JavaScript Features You Must Know
-   Tags: javascript, es2022, web-development, frontend, nodejs
+   File: src/content/ai-blogs/debugging-mastery-the-real-programming-skill-in-an-ai-era.md
+   Length: 8608 characters
+   Title: Debugging Mastery: The Real Programming Skill in an AI Era
+   Tags: debugging, software-development, ai-tools, copy-paste, programming-skills
    Source: devto
-   Images: public/ai-blogs/16-mind-blowing-modern-javascript-features-you-must-know/
+   Images: public/ai-blogs/debugging-mastery-the-real-programming-skill-in-an-ai-era/
